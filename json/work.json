@@ -1,0 +1,89 @@
+{
+	"work": [
+	
+		  		{ 
+					"title":"Mercedes Me Web App" , 
+					"thumb": "images/work/thumbnails/mbme.jpg",
+					"images":["images/work/mercedes-me/mbme.jpg"] , 
+					"description": "<p>The Mercedes Me web app allows Mercedes drivers to connect to their cars, and check finance and subscription information. It was built using <a href=\"https://facebook.github.io/react/\">React</a> and ES6.</p>",
+					"webLink": "https://www.mbusa.com/mercedesme/index",
+					"androidLink": "",
+					"githubLink":""
+				},
+				{ 
+					"title":"Edmond's Illness" , 
+					"thumb": "images/work/thumbnails/edmond.jpg",
+					"images":["images/work/edmonds-illness/edmond.jpg"] , 
+					"description": "<p>Edmond's Illness was my entry into the Ludum Dare 30 game jam. The whole game was made in 2 days. It's a game where you have to save Edmond's life by controlling the cells in his body. I used unity for this game and there is a web version and an android version.</p>",
+					"webLink": "http://www.jmilstead.com/ld30",
+					"androidLink": "https://play.google.com/store/apps/details?id=com.intelligentbeans.edmondsillness",
+					"githubLink":""
+				},
+				
+				{ 
+					"title":"Commander Z" , 
+					"thumb": "images/work/thumbnails/commander-z.jpg",
+					"images":["images/work/commander-z/commander-z.jpg"] , 
+					"webLink": "",
+					"androidLink": "https://play.google.com/store/apps/details?id=com.intelligentbeans&hl=en/",
+					"githubLink":"",
+					"description": "<p>Commander Z is a platform game that I have been building on and off for over a year. I spend a lot of my free time working on this game. Originally, I started out from scratch with java and android. I've gotten far a long that I built my own level editor, but I ran into several limitations with the tile based design I started with. I wanted to build larger levels, so I decided to restart and use the LibGDX framework to allow me to publish on multiple platforms instead of just android.</p>"
+				},
+			
+				{ 
+					"title":"Flush Rush" , 
+					"images":["images/work/flush-rush/flushrush.jpg"], 
+					"description": "<p>Flush Rush is a game that I built using javascript and html. The game was originally supposed to be used on a webpage, but I decided to port it to Android. I built my own custom Android wrapper in java and used that to interface with the javascript code I already had. I wrote native Android code to handle all of the sound effects and saving the users progress. </p>",
+					"webLink": "",
+					"androidLink": "https://play.google.com/store/apps/details?id=com.intelligentbeans.dare",
+					"githubLink":"https://github.com/ragingRobot/Pipes",
+					"blogLink": "http://flush-rush.tumblr.com/"
+				},
+
+				{ 
+						
+					"title":"Bellamy's Portfolio" , 
+					"images":["images/work/bellamy/1.jpg","images/work/bellamy/bellamy1.jpg","images/work/bellamy/bellamy2.jpg","images/work/bellamy/bellamy3.jpg"] , 
+					"description": "<p>This is a website that I built for a local artist in Savannah, Ga. There are several pages about her artwork and a gallery with all of her paintings. This site is responsive and was built using twitter bootstrap for the grid system. I used wordpress for the backend so that bellamy can go in and update the pages when she creates more work.</p>",
+					"webLink": "http://www.bellamyart.com",
+					"androidLink": "",
+					"githubLink":""
+				},
+
+				
+				{ 
+					"title":"Koan Health" , 
+					"images":["images/work/koan/1.jpg","images/work/koan/2.jpg","images/work/koan/3.jpg","images/work/koan/4.jpg"] , 
+					"description": "<p>Koan Health is a healthcare company based out of Texas. I did all of the development for their site. It's a responsive site where they can share news and information about their company. This site is built with wordpress for the back-end and I used twitter bootstrap for the front-end grid system.</p>",
+					"webLink": "",
+					"androidLink": "",
+					"githubLink":""
+				},
+				
+				{ 
+					"title":"SCAD Career Fair" , 
+					"images":["images/work/scad-career-fair/careerFairApp.jpg","images/work/scad-career-fair/1.jpg","images/work/scad-career-fair/2.jpg","images/work/scad-career-fair/3.jpg"] , 
+					"description": "<p>The SCAD Career Fair is an anual event where students and alumni interview with potential employers. I was responsible for creating a mobile app and website for this event to help the students find and connect with future employers.</p><p>For the App, I used phone Gap and created all of the screens using html and javascript. This enabled me to build the app fast and also support Android and iPhone devices. I have made a few apps using phone gap although I prefer the proformance of native apps. This was the first app that I released on the iPhone and so I learned a lot about submitting apps to the Apple app store.</p>",
+					"webLink": "",
+					"androidLink": "",
+					"githubLink":""
+				},
+		  	
+				{ 
+					"title":"Savannah Film Festival" ,
+					"images":["images/work/savannah-film-festival/film3.jpg","images/work/savannah-film-festival/film1.jpg","images/work/savannah-film-festival/film2.jpg"] , 
+					"description": "<p>From 2009 to 2012 I worked for the Savannah College of Art and Design. The Savannah Film Festival is an anual event that Savannah College of Art and Design hosts. Over that time I was responsible for building many itterations of the film festival site. The sites all used wordpress as the backend and I was responsible for making a new custom template and plugins each year.</p>",
+					"webLink": "",
+					"androidLink": "",
+					"githubLink":""
+				},
+				{ 
+					"title":"Eggcited" , 
+					"images":["images/work/eggcited/eggcited.jpg"], 
+					"description": "<p>Eggcited is game that I made for the 28th Ludum Dare game jam. The game was written in Java using the LibGDX framework. I created all of the artwork and wrote all of the code in under 48 hrs. The game is available on windows, OSX, linux and android.</p>",
+					"webLink": "",
+					"androidLink": "https://play.google.com/store/apps/details?id=com.intelligentbeans.dare",
+					"githubLink":"https://github.com/ragingRobot/LD28"
+				}
+	]
+}
