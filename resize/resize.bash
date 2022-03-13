@@ -1,0 +1,1 @@
+magick mogrify -trim +repage *.png

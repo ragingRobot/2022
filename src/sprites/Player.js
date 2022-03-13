@@ -7,7 +7,7 @@ const WALK_SPEED = 300;
 const MAX_LIFE = 4;
 export default class extends Phaser.Physics.Arcade.Sprite {
   constructor(scene) {
-    super(scene, 200, 1000, 'player');
+    super(scene, 0, 0, 'player');
     this.game = scene.game;
     this.scene = scene;
     this.activeBullet = [];
@@ -16,18 +16,17 @@ export default class extends Phaser.Physics.Arcade.Sprite {
     this.isAlive = true;
     scene.physics.world.enable(this);
     scene.add.existing(this);
-    this.setSize(50, 120);
     this.setBounce(0);
     this.setCollideWorldBounds(true);
-    this.setScale(.7, .7);
 
     this.left = scene.input.keyboard.addKey('A');  // Get key object
     this.right = scene.input.keyboard.addKey('D');  // Get key object
     this.up = scene.input.keyboard.addKey('W');  // Get key object
 
+
     scene.anims.create({
       key: 'left',
-      frames: scene.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
+      frames: scene.anims.generateFrameNumbers('player', { start: 1, end: 4 }),
       frameRate: 8,
     });
 
@@ -39,19 +38,19 @@ export default class extends Phaser.Physics.Arcade.Sprite {
 
     scene.anims.create({
       key: 'right',
-      frames: scene.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
+      frames: scene.anims.generateFrameNumbers('player', { start: 1, end: 4 }),
       frameRate: 8,
     });
 
     scene.anims.create({
       key: 'shoot',
-      frames: scene.anims.generateFrameNumbers('player', { start: 4, end: 5 }),
+      frames: scene.anims.generateFrameNumbers('player', { start: 8, end: 10 }),
       frameRate: 8
     });
 
     scene.anims.create({
       key: 'jump',
-      frames: scene.anims.generateFrameNumbers('player', { start: 6, end: 6 }),
+      frames: scene.anims.generateFrameNumbers('player', { start: 5, end: 7 }),
       frameRate: 8,
       repeat: 0
     });
@@ -66,20 +65,6 @@ export default class extends Phaser.Physics.Arcade.Sprite {
       setTimeout(() => {
         this.canShoot = true;
       }, 400);
-      const dir = this.flipX ? 10 : -10;
-      var bullet = this.scene.bullets.get(this.x + dir, this.y - 20);
-      if (bullet) {
-        bullet.setActive(true);
-        bullet.setVisible(true);
-        const speed = this.flipX ? 500 : -500;
-        bullet.body.velocity.x = speed;
-        bullet.body.velocity.y = -150;
-        this.activeBullet.push(bullet);
-        bullet.die = () => {
-          bullet.setActive(false);
-          bullet.setVisible(false);
-        }
-      }
     }
   }
 
@@ -90,12 +75,12 @@ export default class extends Phaser.Physics.Arcade.Sprite {
       if (this.life + amount < MAX_LIFE) {
         this.life += amount;
         ShaderManager.updatePulse(MAX_LIFE, updater);
-      } else if(this.life + amount >= MAX_LIFE){
+      } else if (this.life + amount >= MAX_LIFE) {
         this.life = MAX_LIFE;
         ShaderManager.updatePulse(MAX_LIFE, updater);
       }
 
-      if(amount > 0){
+      if (amount > 0) {
         this.scene.sound.play("powerUp");
       } else {
         this.scene.sound.play("powerDown");
@@ -148,13 +133,13 @@ export default class extends Phaser.Physics.Arcade.Sprite {
     {
       this.body.setVelocityX(-WALK_SPEED); // move left
       this.anims.play('left', this);
-      this.flipX = false;
+      this.flipX = true;
     }
     else if (this.right.isDown || this.cursors.right.isDown || Controller.right) // if the right arrow key is down
     {
       this.body.setVelocityX(WALK_SPEED); // move right
       this.anims.play('right', this);
-      this.flipX = true;
+      this.flipX = false;
     } else {
       this.body.setVelocityX(0);
     }
@@ -163,13 +148,16 @@ export default class extends Phaser.Physics.Arcade.Sprite {
       this.shoot();
     }
     if ((this.up.isDown || this.cursors.up.isDown || Controller.action2) && (this.body.overlapY || this.body.onFloor())) {
-      this.anims.play('jump', this);
+      if (!this.anims.isPlaying || !this.anims.currentAnim.key === 'jump') {
+        this.anims.play('jump', this);
+      }
       this.body.setVelocityY(-600); // jump up
-      //this.sound.play('jump');
     }
 
-    if(this.body.onFloor() && this.body.velocity.x === 0 && !this.cursors.space.isDown && !Controller.action1){
-      this.anims.play('stop', this);
+    if (this.body.onFloor() && this.body.velocity.x === 0 && !this.cursors.space.isDown && !Controller.action1 && !this.cursors.up.isDown && !this.up.isDown && !Controller.action2) {
+      if (!this.anims.isPlaying){
+        this.anims.play('stop', this);
+      }
     }
   }
 }

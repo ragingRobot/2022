@@ -4,80 +4,28 @@ const Distance = Phaser.Math.Distance;
 const WALK_SPEED = 100;
 const OFFSET = 100;
 export default class extends Phaser.Physics.Arcade.Sprite {
-  constructor(game, x = 2000, y = 1000) {
-    super(game.scene.scene, x, y, 'monster');
+  constructor(game, x = 0, y = 0) {
+    super(game.scene.scene, x, y, 'ghost');
     this.game = game;
     this.scene = game.scene.scene;
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
-    this.life = 10;
+    this.life = 3;
     this.canShoot = true;
-    this.setSize(50, 280);
     this.setBounce(0);
     this.setCollideWorldBounds(true);
-    this.setScale(.6, .6);
     this.setImmovable(true);
-    setTimeout(this.pound.bind(this), 3000);
 
 
     this.scene.anims.create({
-      key: 'monsterstand',
-      frames: [{ key: 'monster', frame: 0 }],
-      frameRate: 8
+      key: 'ghostIdle',
+      frames: this.scene.anims.generateFrameNumbers('ghost', { start: 0, end: 2 }),
+      frameRate: 8,
+      repeat: -1,
     });
 
-    this.scene.anims.create({
-      key: 'monsterfire',
-      frames: [{ key: 'monster', frame: 1 }],
-      frameRate: 2
-    });
+    this.scene.anims.play('ghostIdle', this);
 
-
-  }
-
-  pound() {
-    if (this.body && this.life > 0) {
-      if (!this.playerIsLeft(400) && !this.playerIsRight(400)) {
-        if (this.body) {
-          this.body.setVelocityY(-300);
-        }
-        setTimeout(() => {
-          this.game.shake();
-          this.game.sound.play('boom');
-          setTimeout(() => {
-            this.shoot();
-          }, 600);
-        }, 600);
-      }
-      setTimeout(this.pound.bind(this), 3000);
-    }
-  }
-
-  shoot() {
-    if(this.canShoot && this.scene){
-      this.canShoot = false;
-      setTimeout(()=> {
-        this.canShoot = true;
-        this.anims.play('monsterstand', this);
-      }, 400);
-      const dir= this.flipX ? 10 : -10;
-       var fireball = this.scene.fireballs.get(this.x + dir, this.y + 15);
-       ShaderManager.fire(fireball);
-       this.anims.play('monsterfire', this);
-      if (fireball) {
-        fireball.setActive(true);
-        fireball.setVisible(true);
-        fireball.flipX = this.flipX;
-        fireball.body.setAllowGravity(false);
-        const speed = this.flipX ? 500 : -500;
-        fireball.body.velocity.x = speed;
-        fireball.body.velocity.y = 0;
-        fireball.die = () => {
-          fireball.setActive(false);
-          fireball.setVisible(false);
-        }
-      }
-    }
   }
 
   playerIsLeft(offset = 0) {

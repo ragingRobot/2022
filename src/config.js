@@ -1,12 +1,13 @@
 import Phaser from 'phaser'
 
 export default {
+  pixelArt: true,
   scale: {
     mode: Phaser.Scale.RESIZE,
     parent: 'content',
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    width: 800,
-    height: 500
+    width: 4000,
+    height: 600
   },
   physics: {
     default: 'arcade',

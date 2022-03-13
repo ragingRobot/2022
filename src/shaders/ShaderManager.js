@@ -1,4 +1,4 @@
-import FirePipeline from './firePipeline';
+import FirePipeline from './FirePipeline';
 import DistortionPipeline from './DistortionPipeline';
 import SpotlightPipeline from './SpotlightPipeline';
 import ColorSpotlightPipeline from './ColorSpotlightPipeline';
