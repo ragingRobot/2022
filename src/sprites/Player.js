@@ -113,16 +113,6 @@ export default class extends Phaser.Physics.Arcade.Sprite {
       return;
     }
 
-    //check bullet life
-    this.activeBullet.forEach((bullet) => {
-      bullet.angle += .01;
-      if (Math.abs(Distance.Between(this.x, this.y, bullet.x, bullet.y)) > this.life * 100) {
-        bullet.setActive(false);
-        bullet.setVisible(false);
-      }
-    });
-
-
     if (!this.scene.playerIsAlive || (this.scene.isShaking && this.body.onFloor()) || !this.body) {
       this.body.setVelocityX(0);
       return;
@@ -132,13 +122,17 @@ export default class extends Phaser.Physics.Arcade.Sprite {
     if (this.left.isDown || this.cursors.left.isDown || Controller.left) // if the left arrow key is down
     {
       this.body.setVelocityX(-WALK_SPEED); // move left
-      this.anims.play('left', this);
+      if (this.body.onFloor() && !this.cursors.space.isDown && !Controller.action1) {
+        this.anims.play('left', this);
+      }
       this.flipX = true;
     }
     else if (this.right.isDown || this.cursors.right.isDown || Controller.right) // if the right arrow key is down
     {
       this.body.setVelocityX(WALK_SPEED); // move right
-      this.anims.play('right', this);
+      if (this.body.onFloor() && !this.cursors.space.isDown && !Controller.action1) {
+        this.anims.play('right', this);
+      }
       this.flipX = false;
     } else {
       this.body.setVelocityX(0);
@@ -148,14 +142,12 @@ export default class extends Phaser.Physics.Arcade.Sprite {
       this.shoot();
     }
     if ((this.up.isDown || this.cursors.up.isDown || Controller.action2) && (this.body.overlapY || this.body.onFloor())) {
-      if (!this.anims.isPlaying || !this.anims.currentAnim.key === 'jump') {
-        this.anims.play('jump', this);
-      }
+      this.anims.play('jump', this);
       this.body.setVelocityY(-600); // jump up
     }
 
     if (this.body.onFloor() && this.body.velocity.x === 0 && !this.cursors.space.isDown && !Controller.action1 && !this.cursors.up.isDown && !this.up.isDown && !Controller.action2) {
-      if (!this.anims.isPlaying){
+      if (!this.anims.isPlaying) {
         this.anims.play('stop', this);
       }
     }
