@@ -7,13 +7,13 @@ export default {
     parent: 'content',
     autoCenter: Phaser.Scale.CENTER_BOTH,
     width: 4000,
-    height: 600
+    height: 1000
   },
   physics: {
-    default: 'arcade',
-    arcade: {
-        gravity: { y: 1000 },
-        debug: false
+    default: "matter",
+    matter: {
+      gravity: { y: 5 },
+      //debug: true
     }
   },
   localStorageName: 'phaseres6webpack'

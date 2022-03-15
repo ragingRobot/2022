@@ -3,21 +3,23 @@ import Controller from '../Controller.js'
 import ShaderManager from '../shaders/ShaderManager.js';
 
 const Distance = Phaser.Math.Distance;
-const WALK_SPEED = 300;
+const WALK_SPEED = 8;
+const JUMP_SPEED = 30;
 const MAX_LIFE = 4;
-export default class extends Phaser.Physics.Arcade.Sprite {
+export default class extends Phaser.Physics.Matter.Sprite {
   constructor(scene) {
-    super(scene, 0, 0, 'player');
+    var shapes = scene.cache.json.get('shapes');
+    super(scene.matter.world, 0, 0, 'player', 0, { shape: shapes.player });
+    scene.add.existing(this);
     this.game = scene.game;
     this.scene = scene;
     this.activeBullet = [];
     this.life = 1;
     this.canShoot = true;
     this.isAlive = true;
-    scene.physics.world.enable(this);
-    scene.add.existing(this);
     this.setBounce(0);
-    this.setCollideWorldBounds(true);
+    this.touchingGround = false;
+    this.setFixedRotation();
 
     this.left = scene.input.keyboard.addKey('A');  // Get key object
     this.right = scene.input.keyboard.addKey('D');  // Get key object
@@ -113,40 +115,41 @@ export default class extends Phaser.Physics.Arcade.Sprite {
       return;
     }
 
-    if (!this.scene.playerIsAlive || (this.scene.isShaking && this.body.onFloor()) || !this.body) {
-      this.body.setVelocityX(0);
+    if (!this.scene.playerIsAlive || (this.scene.isShaking && this.touchingGround) || !this.body) {
+      this.setVelocityX(0);
       return;
     }
 
 
     if (this.left.isDown || this.cursors.left.isDown || Controller.left) // if the left arrow key is down
     {
-      this.body.setVelocityX(-WALK_SPEED); // move left
-      if (this.body.onFloor() && !this.cursors.space.isDown && !Controller.action1) {
+      this.setVelocityX(-WALK_SPEED); // move left
+      if (this.touchingGround && !this.cursors.space.isDown && !Controller.action1) {
         this.anims.play('left', this);
       }
       this.flipX = true;
     }
     else if (this.right.isDown || this.cursors.right.isDown || Controller.right) // if the right arrow key is down
     {
-      this.body.setVelocityX(WALK_SPEED); // move right
-      if (this.body.onFloor() && !this.cursors.space.isDown && !Controller.action1) {
+      this.setVelocityX(WALK_SPEED); // move right
+      if (this.touchingGround && !this.cursors.space.isDown && !Controller.action1) {
         this.anims.play('right', this);
       }
       this.flipX = false;
     } else {
-      this.body.setVelocityX(0);
+      this.setVelocityX(0);
     }
 
     if (this.cursors.space.isDown || Controller.action1) {
       this.shoot();
     }
-    if ((this.up.isDown || this.cursors.up.isDown || Controller.action2) && (this.body.overlapY || this.body.onFloor())) {
+    if ((this.up.isDown || this.cursors.up.isDown || Controller.action2) && (this.body.overlapY || this.touchingGround)) {
       this.anims.play('jump', this);
-      this.body.setVelocityY(-600); // jump up
+      this.touchingGround = false;
+      this.setVelocityY(-JUMP_SPEED); // jump up
     }
 
-    if (this.body.onFloor() && this.body.velocity.x === 0 && !this.cursors.space.isDown && !Controller.action1 && !this.cursors.up.isDown && !this.up.isDown && !Controller.action2) {
+    if (this.touchingGround && this.body.velocity.x === 0 && !this.cursors.space.isDown && !Controller.action1 && !this.cursors.up.isDown && !this.up.isDown && !Controller.action2) {
       if (!this.anims.isPlaying) {
         this.anims.play('stop', this);
       }

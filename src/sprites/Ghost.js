@@ -3,18 +3,16 @@ import ShaderManager from '../shaders/ShaderManager';
 const Distance = Phaser.Math.Distance;
 const WALK_SPEED = 100;
 const OFFSET = 100;
-export default class extends Phaser.Physics.Arcade.Sprite {
+export default class extends Phaser.Physics.Matter.Sprite {
   constructor(game, x = 0, y = 0) {
-    super(game.scene.scene, x, y, 'ghost');
+    var shapes = game.scene.scene.cache.json.get('shapes');
+    super(game.scene.scene.matter.world, x, y, 'ghost', 0, { shape: shapes.ghost});
+    game.scene.scene.add.existing(this);
     this.game = game;
     this.scene = game.scene.scene;
-    this.scene.physics.world.enable(this);
-    this.scene.add.existing(this);
     this.life = 3;
     this.canShoot = true;
     this.setBounce(0);
-    this.setCollideWorldBounds(true);
-    this.setImmovable(true);
 
 
     this.scene.anims.create({
