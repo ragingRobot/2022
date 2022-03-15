@@ -15,6 +15,8 @@ export default class extends Phaser.Scene {
     this.load.image('house2', 'assets/images/house2.png');
     this.load.image('house3', 'assets/images/house3.png');
     this.load.image('house4', 'assets/images/house4.png');
+    this.load.image('house1inside', 'assets/images/house1inside.png');
+    this.load.image('house4inside', 'assets/images/house4inside.png');
     this.load.image('gate', 'assets/images/gate.png');
     this.load.json('shapes', 'assets/images/backgroundPhysicsShape.json');
     this.ready = true

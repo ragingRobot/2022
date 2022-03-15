@@ -20,6 +20,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
     this.setBounce(0);
     this.touchingGround = false;
     this.setFixedRotation();
+    this.currentAction = null;
 
     this.left = scene.input.keyboard.addKey('A');  // Get key object
     this.right = scene.input.keyboard.addKey('D');  // Get key object
@@ -64,6 +65,9 @@ export default class extends Phaser.Physics.Matter.Sprite {
     if (this.canShoot) {
       this.canShoot = false;
       this.anims.play('shoot', this);
+      if (this.currentAction){
+        this.currentAction();
+      }
       setTimeout(() => {
         this.canShoot = true;
       }, 400);
