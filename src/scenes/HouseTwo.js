@@ -17,17 +17,19 @@ export default class extends AbstractGame {
     }
 
     addItems() {
-        this.player.x = 600;
+        this.player.x = 500;
         this.player.y = 780;
         this.player.alpha = 0;
         this.background.alpha = 0;
-        const house = new House(this, 900, 810, 2, true);
+        this.house = new House(this, 900, 810, 2, true);
+    }
 
-
+    fadeIn() {
         var tl = gsap.timeline({ defaults: { ease: "power2.inOut", duration: 1 } });
-        tl.to(house, {
+        tl.to(this.house, {
             duration: 1,
-            x: 350,
+            x: 500,
+            y: 820,
         }).to([this.player, this.background], {
             duration: 1,
             alpha: 1,

@@ -57,7 +57,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
       if (Math.abs(Distance.Between(this.x, this.y, this.game.player.x, this.game.player.y)) < 500) {
         if (this.playerIsLeft(OFFSET)) {
           if(this.body.blocked.left){
-            this.body.setVelocityY(-500); // jump up
+            this.setVelocityY(-5); // jump up
           }
           this.body.setVelocityX(-WALK_SPEED); // move left
           //this.anims.play('left', true);
@@ -65,14 +65,14 @@ export default class extends Phaser.Physics.Matter.Sprite {
         }
         else if (this.playerIsRight(OFFSET)) {
           if(this.body.blocked.right){
-            this.body.setVelocityY(-500); // jump up
+            this.setVelocityY(-5); // jump up
           }
           this.body.setVelocityX(WALK_SPEED); // move right
           //this.anims.play('right', true);
           this.flipX = true;
         } else {
           this.game.player.x < this.x ? this.flipX = false : this.flipX = true;
-          this.body.setVelocityX(0);
+          this.setVelocityX(0);
         }
       }
     }

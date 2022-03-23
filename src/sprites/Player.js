@@ -9,7 +9,7 @@ const MAX_LIFE = 4;
 export default class extends Phaser.Physics.Matter.Sprite {
   constructor(scene) {
     var shapes = scene.cache.json.get('shapes');
-    super(scene.matter.world, 0, 0, 'player', 0, { shape: shapes.player });
+    super(scene.matter.world, 300, 0, 'player', 0, { shape: shapes.player });
     scene.add.existing(this);
     this.game = scene.game;
     this.scene = scene;

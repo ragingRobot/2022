@@ -14,20 +14,24 @@ export default class extends AbstractGame {
     }
 
     addBackground() {
-        this.background = new House4Background(this, 1732, 400);
+        this.background = new House4Background(this, 1400, 450);
     }
 
     addItems() {
-        this.ghost = new Ghost(this);
+        this.ghost = new Ghost(this, 1000, 600);
         this.ghost.alpha = 0;
-        this.player.x = 600;
+        this.player.x = 500;
         this.player.y = 780;
         this.player.alpha = 0;
         this.background.alpha = 0;
-        const house = new House(this, 1960, 345, 4, true);
+        this.house = new House(this, 1960, 345, 4, true);
+    }
 
-        var tl = gsap.timeline({ defaults: { ease: "power2.inOut", duration: 1 } });
-        tl.to(house, {
+    fadeIn() {
+        var tl = gsap.timeline({
+            defaults: { ease: "power2.inOut", duration: 1 }
+        });
+        tl.to(this.house, {
             duration: 1,
             x: 460,
             y: 710,
@@ -35,5 +39,14 @@ export default class extends AbstractGame {
             duration: 1,
             alpha: 1,
         });
+    }
+
+
+    fadeAway(callBack) {
+        gsap.timeline().to([this.ghost], {
+            duration: .2,
+            alpha: 0,
+        });
+        super.fadeAway(callBack);
     }
 }

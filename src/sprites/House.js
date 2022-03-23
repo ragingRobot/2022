@@ -1,18 +1,39 @@
+import { gsap } from "gsap";
 export default class House extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y, houseNumber, isExit) {
         super(scene.matter.world, x, y, 'house' + houseNumber, 0, {
             isSensor: true
         });
+        this.startX = x;
+        this.startY = y;
         this.isExit = isExit;
         this.scene = scene;
         this.houseNumber = houseNumber;
+        this.isSensor = true;
         scene.add.existing(this);
         this.setStatic(true);
     }
 
     PlayerAction = () => {
-        if(this.isExit){
-            this.scene.scene.start('StreetScene');
+        if (this.isExit) {
+            if (this.scene.fadeAway) {
+                this.scene.fadeAway(() => {
+                    var tl = gsap.timeline({
+                        onComplete: () => {
+                            this.scene.scene.start('StreetScene', { houseNumber: this.houseNumber, startPosition: {
+                                x: this.startX,
+                                y: this.startY,
+                            } });
+                        }, defaults: { ease: "power2.inOut", duration: 1 }
+                    });
+                    tl.to(this, {
+                        duration: .5,
+                        x: this.startX,
+                        y: this.startY,
+                    })
+                });
+            }
+
             return;
         }
         this.scene.scene.start('House' + this.houseNumber + 'Scene');

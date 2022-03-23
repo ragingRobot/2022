@@ -8,7 +8,7 @@ export default {
     parent: 'content',
     autoCenter: Phaser.Scale.CENTER_BOTH,
     width: 4000,
-    height: 1000
+    height: 800
   },
   physics: {
     default: "matter",
