@@ -12,10 +12,10 @@ export default class extends AbstractGame {
 
     addBackground() {
         this.houses = [];
-        this.houses.push(new House(this, 500, 780, 1));
-        this.houses.push(new House(this, 900, 810, 2));
-        this.houses.push(new House(this, 1220, 796, 3));
-        this.houses.push(new House(this, 1960, 345, 4));
+        this.houses.push(new House(this, 500, 870, 1));
+        this.houses.push(new House(this, 900, 852, 2));
+        this.houses.push(new House(this, 1220, 870, 3));
+        this.houses.push(new House(this, 1960, 420, 4));
         this.background = new Background(this, 1532, 800);
     }
 

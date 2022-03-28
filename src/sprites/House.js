@@ -1,8 +1,10 @@
 import { gsap } from "gsap";
 export default class House extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y, houseNumber, isExit) {
+        var shapes = scene.cache.json.get('shapes');
         super(scene.matter.world, x, y, 'house' + houseNumber, 0, {
-            isSensor: true
+            isSensor: true,
+            shape: shapes['house' + houseNumber]
         });
         this.startX = x;
         this.startY = y;

@@ -21,7 +21,7 @@ export default class extends AbstractGame {
         this.player.y = 780;
         this.player.alpha = 0;
         this.background.alpha = 0;
-        this.house = new House(this, 1220, 796, 3, true);
+        this.house = new House(this, 1220, 870, 3, true);
     }
 
     fadeIn() {

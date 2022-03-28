@@ -9,6 +9,7 @@ export default class extends Phaser.Scene {
     this.playerIsAlive = true;
     this.isShaking = false;
     this.houses = [];
+    this.objects = [];
   }
 
   init(data) {
@@ -41,7 +42,6 @@ export default class extends Phaser.Scene {
       objectA: this.player,
       objectB: this.background,
       callback: function (eventData) {
-        // This function will be invoked any time the player and trap door collide.
         const { bodyA, bodyB, gameObjectA, gameOaabjectB, pair } = eventData;
         this.player.touchingGround = true;
 
@@ -102,7 +102,7 @@ export default class extends Phaser.Scene {
   }
   fadeIn() {
     const houses = this.houses.filter((house) => house.houseNumber !== this.lastHouseNumber);
-    const itemsToFade = [this.player, this.background, ...houses]
+    const itemsToFade = [this.player, this.background, ...houses, ...this.objects]
     itemsToFade.forEach(item => {
       item.alpha = 0;
     });
@@ -114,7 +114,7 @@ export default class extends Phaser.Scene {
   }
   fadeAway(callBack) {
     var tl = gsap.timeline({ onComplete: callBack, defaults: { ease: "power2.inOut", duration: .5 } });
-    tl.to([this.player, this.background], {
+    tl.to([this.player, this.background, ...this.objects], {
       duration: .5,
       alpha: 0,
     });

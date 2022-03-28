@@ -10,6 +10,7 @@ export default class extends Phaser.Scene {
     this.ready = false;
     this.load.spritesheet('player', 'assets/images/Player.png', { frameWidth: 140, frameHeight: 140 });
     this.load.spritesheet('ghost', 'assets/images/Ghost.png', { frameWidth: 140, frameHeight: 140 });
+    this.load.spritesheet('houseSprites', 'assets/images/houseSprites.png', { frameWidth: 250, frameHeight: 250 });
     this.load.image('background', 'assets/images/background.png');
     this.load.image('house1', 'assets/images/house1.png');
     this.load.image('house2', 'assets/images/house2.png');

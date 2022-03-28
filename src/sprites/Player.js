@@ -17,6 +17,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
     this.life = 1;
     this.canShoot = true;
     this.isAlive = true;
+    this.isActive = true;
     this.setBounce(0);
     this.touchingGround = false;
     this.setFixedRotation();
@@ -65,8 +66,14 @@ export default class extends Phaser.Physics.Matter.Sprite {
     if (this.canShoot) {
       this.canShoot = false;
       this.anims.play('shoot', this);
-      if (this.currentAction){
-        this.currentAction();
+      if (this.currentAction) {
+        this.isActive = this.currentAction();
+
+        if (this.isActive) {
+          this.alpha = 1;
+        } else {
+          this.alpha = 0;
+        }
       }
       setTimeout(() => {
         this.canShoot = true;
@@ -124,26 +131,26 @@ export default class extends Phaser.Physics.Matter.Sprite {
       return;
     }
 
-
-    if (this.left.isDown || this.cursors.left.isDown || Controller.left) // if the left arrow key is down
-    {
-      this.setVelocityX(-WALK_SPEED); // move left
-      if (this.touchingGround && !this.cursors.space.isDown && !Controller.action1) {
-        this.anims.play('left', this);
+    if (this.isActive) {
+      if (this.left.isDown || this.cursors.left.isDown || Controller.left) // if the left arrow key is down
+      {
+        this.setVelocityX(-WALK_SPEED); // move left
+        if (this.touchingGround && !this.cursors.space.isDown && !Controller.action1) {
+          this.anims.play('left', this);
+        }
+        this.flipX = true;
       }
-      this.flipX = true;
-    }
-    else if (this.right.isDown || this.cursors.right.isDown || Controller.right) // if the right arrow key is down
-    {
-      this.setVelocityX(WALK_SPEED); // move right
-      if (this.touchingGround && !this.cursors.space.isDown && !Controller.action1) {
-        this.anims.play('right', this);
+      else if (this.right.isDown || this.cursors.right.isDown || Controller.right) // if the right arrow key is down
+      {
+        this.setVelocityX(WALK_SPEED); // move right
+        if (this.touchingGround && !this.cursors.space.isDown && !Controller.action1) {
+          this.anims.play('right', this);
+        }
+        this.flipX = false;
+      } else {
+        this.setVelocityX(0);
       }
-      this.flipX = false;
-    } else {
-      this.setVelocityX(0);
     }
-
     if (this.cursors.space.isDown || Controller.action1) {
       this.shoot();
     }
