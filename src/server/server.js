@@ -9,7 +9,7 @@ const { Server } = require('socket.io');
 const io = new Server(server);
 const PORT = process.env.PORT || 8989;
 
-app.get('/', (req, res) => {
+app.get(['/', '/art', '/software', '/resume', '/contact'], (req, res) => {
   res.sendFile(`${process.cwd()}/html/index.html`);
 });
 app.get('/controller', (req, res) => {
@@ -17,9 +17,7 @@ app.get('/controller', (req, res) => {
 });
 app.use('/dist', express.static('dist'));
 app.use('/assets', express.static('assets'));
-app.get('/view', (req, res) => {
-  res.sendFile(`${process.cwd()}/html/view.html`);
-});
+
 
 const players = {};
 
@@ -53,12 +51,6 @@ io.on('connection', (socket) => {
     socket.join('game');
   });
 
-  socket.on('im a bonus view', (msg) => {
-    io.emit('view connection', true);
-    console.log('a bonus view connected');
-    socket.join('bonus');
-  });
-
   socket.on('disconnect', () => {
     if (controller) {
       console.log(Object.keys(players).length);
@@ -69,32 +61,6 @@ io.on('connection', (socket) => {
       console.log('controller disconnected');
     }
   });
-
-  socket.on('changeRoom', (msg) => {
-    // this is called from the view but the players socket is the one that needs to move rooms
-    const playerSocket = io.sockets.sockets.get(msg.socketId);
-    if (players[msg.socketId] && playerSocket) {
-      console.log('changing room');
-      playerSocket.leave(players[msg.socketId].room);
-      playerSocket.to(players[msg.socketId].room).emit('controller connection', { socketId: msg.socketId, value: false, numberOfPlayers: Object.keys(players).length });
-      console.log(`change from room ${players[msg.socketId].room}`);
-      playerSocket.join(msg.room);
-
-      playerSocket.to(msg.room).emit('controller connection', {
-        socketId: msg.socketId,
-        x: msg.x,
-        y: msg.y,
-        value: {
-          name: players[msg.socketId].type,
-        },
-        numberOfPlayers: Object.keys(players).length,
-      });
-      players[msg.socketId].room = msg.room;
-      console.log(`to room ${players[msg.socketId].room}`);
-      // console.log(io.sockets.adapter.rooms);
-    }
-  });
-
 
   socket.on('playerHit', (msg) => {
     // this is called from the view but the players socket is the one that needs to be alerted

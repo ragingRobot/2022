@@ -3,6 +3,7 @@ import PhaserMatterCollisionPlugin from "phaser-matter-collision-plugin";
 
 export default {
   pixelArt: true,
+  transparent: true,
   scale: {
     mode: Phaser.Scale.RESIZE,
     parent: 'content',

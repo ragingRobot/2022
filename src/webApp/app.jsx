@@ -1,11 +1,13 @@
 import React from 'react';
 
 import './app.css';
+import Header from './Header';
 
-function App() {
+function App({ children }) {
   return (
     <div>
-      Test
+      <Header />
+      {children}
     </div>
   );
 }

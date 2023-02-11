@@ -21,12 +21,3 @@ class Game extends Phaser.Game {
 }
 
 window.game = new Game();
-
-const fullScreen = document.getElementById("fullScreen");
-fullScreen.addEventListener("click", openFullscreen);
-
-  /* When the openFullscreen() function is executed, open the video in fullscreen.
-Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
-function openFullscreen () {
-  document.documentElement.requestFullscreen();
-}
