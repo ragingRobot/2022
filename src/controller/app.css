@@ -1,0 +1,246 @@
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#root:has(.controller-buttons) {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+progress {
+    background: #00ff00;
+}
+
+.selectContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    text-align: center;
+    padding: 20px;
+}
+
+.triangle-background {
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 52px 77px 52px;
+    border-color: transparent transparent #000000 transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.triangle {
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 52px 77px 52px;
+    border-color: transparent transparent #ffffff transparent;
+    background: none;
+    position: absolute;
+    transform: scale(0.7);
+    top: 4px;
+    left: 0;
+}
+
+button {
+    background: none;
+    outline: none;
+    margin: 20px;
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: none;
+}
+
+.container .button {
+    position: relative;
+    min-width: 150px;
+    min-height: 200px;
+    margin: 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.left,
+.right,
+.upright {
+    width: 105px;
+    height: 105px;
+    margin: 20px;
+    position: relative;
+}
+
+
+.button:active {
+    transform: scale(1.2);
+    transition: transfrom linear 200ms;
+}
+
+.button:active .triangle {
+    border-color: transparent transparent #000000 transparent;
+}
+
+.button:active .triangle-background {
+    border-color: transparent transparent #ffffff transparent;
+}
+
+
+.left {
+    rotate: -90deg;
+}
+
+.right {
+    rotate: 90deg;
+}
+
+.dpad {
+    display: flex;
+    margin: 20px;
+}
+
+.jump {
+    margin: 40px 20px;
+}
+
+
+
+
+.switcher {
+    display: flex;
+    align-self: center;
+}
+.characterType {
+    border: none;
+    text-indent: -999999px;
+    width: 120px;
+    height: 215px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url('../../assets/images/GnomeSelect.png');
+    background-size: 600px;
+    background-position: -32px -235px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.characterType::after {
+    content: "";
+    background: url('../../assets/images/GnomeSelect.png');
+    background-size: 600px;
+    background-position: -24px -13px;
+    width: 124px;
+    height: 200px;
+    display: inline-block;
+    margin-top: -25px;
+
+}
+
+.characterType:hover,
+.characterType:active,
+.characterType:focus {
+    background-color: transparent;
+    transform: scale(1.3);
+    transition: transform 200ms linear;
+    z-index: 100;
+}
+
+.characterType.green {
+    background-position: -304px -235px;
+}
+
+.characterType.green::after {
+    background-position: -311px -8px;
+}
+
+.characterType.purple{
+    background-position: -163px -235px;
+}
+
+.characterType.purple::after {
+    background-position: -170px -13px;
+}
+
+.characterType.blue{
+    background-position: -446px -235px;
+}
+
+.characterType.blue::after {
+    width: 168px;
+    background-position: -434px -20px;
+}
+
+
+.selectTitle {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media only screen and (max-width: 705px) {
+    #root:has(.controller-buttons) {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    body {
+        rotate: 90deg;
+    }
+}
