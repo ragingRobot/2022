@@ -1,4 +1,11 @@
 import { gsap } from "gsap";
+
+const HOUSE_ROUTES = {
+    "1": "software",
+    "2": "art",
+    "3": "contact",
+    "4": "resume"
+}
 export default class House extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y, houseNumber, isExit) {
         var shapes = scene.cache.json.get('shapes');
@@ -22,10 +29,15 @@ export default class House extends Phaser.Physics.Matter.Sprite {
                 this.scene.fadeAway(() => {
                     var tl = gsap.timeline({
                         onComplete: () => {
-                            this.scene.scene.start('StreetScene', { houseNumber: this.houseNumber, startPosition: {
-                                x: this.startX,
-                                y: this.startY,
-                            } });
+                            this.scene.scene.start('StreetScene', {
+                                houseNumber: this.houseNumber, startPosition: {
+                                    x: this.startX,
+                                    y: this.startY,
+                                }
+                            });
+                            if (window.navigate) {
+                                window.navigate("/");
+                            }
                         }, defaults: { ease: "power2.inOut", duration: 1 }
                     });
                     tl.to(this, {
@@ -37,6 +49,9 @@ export default class House extends Phaser.Physics.Matter.Sprite {
             }
 
             return;
+        }
+        if (window.navigate) {
+            window.navigate(HOUSE_ROUTES[this.houseNumber]);
         }
         this.scene.scene.start('House' + this.houseNumber + 'Scene');
     }
