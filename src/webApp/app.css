@@ -27,6 +27,7 @@ h2 {
 
 p {
     max-width: 70ch;
+    padding: 0 1rem;
 }
 
 header sub {
@@ -43,6 +44,13 @@ header nav a:visited  {
 }
 header nav a {
     margin-left: 1rem;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+a[aria-current="page"],
+a[aria-current="page"]:visited {
+    color: purple;
 }
 
 .centered {
@@ -87,7 +95,7 @@ nav ul {
     display: block;
     height: 112px;
     width: 100%;
-    margin-top: -112px;
+    margin-top: -30px;
     position: relative;
 }
 #content {
