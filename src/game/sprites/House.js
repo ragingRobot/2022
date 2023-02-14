@@ -37,6 +37,7 @@ export default class House extends Phaser.Physics.Matter.Sprite {
                             });
                             if (window.navigate) {
                                 window.navigate("/");
+                                window.scrollTo(0, document.body.scrollHeight);
                             }
                         }, defaults: { ease: "power2.inOut", duration: 1 }
                     });
@@ -52,6 +53,7 @@ export default class House extends Phaser.Physics.Matter.Sprite {
         }
         if (window.navigate) {
             window.navigate(HOUSE_ROUTES[this.houseNumber]);
+            window.scrollTo(0, document.body.scrollHeight);
         }
         this.scene.scene.start('House' + this.houseNumber + 'Scene');
     }

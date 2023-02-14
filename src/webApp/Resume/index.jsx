@@ -5,8 +5,8 @@ function Resume() {
     return (
         <>
             <CenteredText title="Work History">
-
-                <h2>Skills</h2>
+            </CenteredText>
+            <h2>Skills</h2>
                 <ul>
                     <li>Proficient in JavaScript, Java, C#, HTML, CSS, and PHP</li>
                     <li>Experience with React, Jquery, PIXI, Phaser, and RequireJS</li>
@@ -18,7 +18,7 @@ function Resume() {
                     <li>Experience working with popular content management systems</li>
                     <li>Expertise in building native Android apps</li>
                 </ul>
-                <h2>Work Experience</h2>
+                
                 <h3>Senior Software Engineer, Intuit's Mailchimp (Apr 2017-Present)</h3>
                 <p>Responsible for developing and maintaining professional and creative websites, applications, and games.</p>
                 <h3>Senior Presentation Layer Engineer, Razorfish (Nov 2014-Present)</h3>
@@ -34,7 +34,6 @@ function Resume() {
                 <h3>Graphic Designer, Oglethorpe Tours (2008)</h3>
                 <p>Designed a print ad that was published in several travel magazines, a kiosk placed in the Savannah Visitors Center, and an interactive map prototype showing all of the trolley stops around the city.</p>
 
-            </CenteredText>
         </>
     );
 }

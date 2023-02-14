@@ -1,3 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+
+}
+
+
+h1, h2, h3 {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 900;
+}
+
+h1 {
+    font-size: 1.5rem;
+    line-height: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+p {
+    max-width: 70ch;
+}
+
+header sub {
+    font-size: .7rem;
+    font-weight: 400;
+}
+
+header h1 a,
+header h1 a:visited,
+header nav a,
+header nav a:visited  {
+    text-decoration: none;
+    color:inherit;
+}
+header nav a {
+    margin-left: 1rem;
+}
+
+.centered {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.pageContent {
+    max-width: 1020px;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 400px;
+}
+
+
+
+
+
+/* Game stuff below here */
 .controls {
     display: block;
     height: 112px;

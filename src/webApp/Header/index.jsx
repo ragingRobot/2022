@@ -5,8 +5,10 @@ import Nav from './Nav';
 function Header() {
     return (
         <header>
-            <h1><NavLink to="/" aria-current='page'>Josh Milstead</NavLink></h1>
-            <sub>Engineer — Artist — Creator Of Things</sub>
+            <div className="logo">
+                <h1><NavLink to="/" aria-current='page'>Josh Milstead</NavLink></h1>
+                <sub>Engineer — Artist — Creator Of Things</sub>
+            </div>
             <Nav />
         </header>
     );

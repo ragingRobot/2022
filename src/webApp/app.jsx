@@ -6,7 +6,7 @@ import Header from './Header';
 function App({ children }) {
   window.navigate = useNavigate();
   return (
-    <div>
+    <div className="pageContent">
       <Header />
       {children}
     </div>
