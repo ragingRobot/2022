@@ -10,6 +10,13 @@ export default class extends Phaser.Scene {
     this.isShaking = false;
     this.houses = [];
     this.objects = [];
+    this.pathname = '';
+  }
+
+  checkUrl(pathname) {
+    if (pathname !== this.path) {
+      this.player.target = this.house;
+    }
   }
 
   init(data) {
@@ -35,6 +42,14 @@ export default class extends Phaser.Scene {
       });
     }
     this.addItems();
+
+
+    window.changeHandler = (location) => {
+      this.checkUrl(location.pathname);
+    };
+    this.checkUrl(window.pathname);
+
+
     this.fadeIn();
     this.cursors = this.input.keyboard.createCursorKeys();
 

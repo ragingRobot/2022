@@ -11,6 +11,7 @@ import House4Background from '../sprites/House4Background';
 export default class extends AbstractGame {
     constructor() {
         super('House4Scene')
+        this.path = '/resume';
     }
 
     addBackground() {

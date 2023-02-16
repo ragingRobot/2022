@@ -10,6 +10,7 @@ import House1Background from '../sprites/House1Background';
 export default class extends AbstractGame {
     constructor() {
         super('House3Scene')
+        this.path = '/contact';
     }
 
     addBackground() {

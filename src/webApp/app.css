@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-body{
-    scroll-behavior: smooth;
+:root {
+    --accent: purple;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
-
 }
-
+body{
+    scroll-behavior: smooth;
+}
 
 h1, h2, h3 {
     font-family: 'Permanent Marker', cursive;
     font-weight: 900;
+    max-width: 70ch;
 }
 
 h1 {
@@ -50,8 +52,29 @@ header nav a {
 
 a[aria-current="page"],
 a[aria-current="page"]:visited {
-    color: purple;
+    color: var(--accent);
 }
+
+
+input, textarea {
+    border: 1px solid #ddd;
+    padding: 1rem;
+  }
+  
+button[type="submit"] {
+    display: block;
+    border: 0;
+    background: var(--accent);
+    cursor: pointer;
+    color: #fff;
+    padding: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .centered {
     text-align: center;

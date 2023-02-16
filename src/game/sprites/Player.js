@@ -18,6 +18,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
     this.canShoot = true;
     this.isAlive = true;
     this.isActive = true;
+    this.target = null;
     this.setBounce(0);
     this.touchingGround = false;
     this.setFixedRotation();
@@ -124,6 +125,36 @@ export default class extends Phaser.Physics.Matter.Sprite {
   update() {
     if (!this.body) {
       return;
+    }
+
+
+    if (this.target) {
+      //walk to target
+      if (this.target.y < this.y - 50) {
+        //you will need to jump to reach the target
+        Controller.action2 = true;
+      } else {
+        Controller.action2 = false;
+      }
+
+      if (this.target.x > this.x + 50) {
+        //walk right to target
+        Controller.left = false;
+        Controller.right = true;
+      } else if (this.target.x < this.x - 50) {
+        //walk left to target
+        Controller.left = true;
+        Controller.right = false;
+      } else {
+        Controller.left = false;
+        Controller.right = false;
+        if (this.target.PlayerAction) {
+          //enter doors
+          this.target.PlayerAction(false);
+        }
+        this.target = null;
+      }
+      //end walk to target
     }
 
     if (!this.scene.playerIsAlive || (this.scene.isShaking && this.touchingGround) || !this.body) {

@@ -23,22 +23,25 @@ export default class House extends Phaser.Physics.Matter.Sprite {
         this.setStatic(true);
     }
 
-    PlayerAction = () => {
+    PlayerAction = (navigate = true) => {
         if (this.isExit) {
             if (this.scene.fadeAway) {
                 this.scene.fadeAway(() => {
                     var tl = gsap.timeline({
                         onComplete: () => {
-                            this.scene.scene.start('StreetScene', {
-                                houseNumber: this.houseNumber, startPosition: {
-                                    x: this.startX,
-                                    y: this.startY,
-                                }
-                            });
-                            if (window.navigate) {
+                            if (navigate && window.navigate) {
+                                this.scene.player.target = null;
                                 window.navigate("/");
                                 window.scrollTo(0, document.body.scrollHeight);
                             }
+                            setTimeout(() => {
+                                this.scene.scene.start('StreetScene', {
+                                    houseNumber: this.houseNumber, startPosition: {
+                                        x: this.startX,
+                                        y: this.startY,
+                                    }
+                                });
+                            }, 10);
                         }, defaults: { ease: "power2.inOut", duration: 1 }
                     });
                     tl.to(this, {
@@ -51,7 +54,7 @@ export default class House extends Phaser.Physics.Matter.Sprite {
 
             return;
         }
-        if (window.navigate) {
+        if (navigate && window.navigate) {
             window.navigate(HOUSE_ROUTES[this.houseNumber]);
             window.scrollTo(0, document.body.scrollHeight);
         }

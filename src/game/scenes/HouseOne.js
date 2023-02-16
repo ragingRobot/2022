@@ -18,6 +18,7 @@ import Door from '../sprites/Door';
 export default class extends AbstractGame {
     constructor() {
         super('House1Scene')
+        this.path = '/software';
     }
 
     addBackground() {
@@ -39,6 +40,7 @@ export default class extends AbstractGame {
         this.player.alpha = 0;
         this.background.alpha = 0;
         this.house = new House(this, 500, 870, 1, true);
+
     }
 
     fadeIn() {
