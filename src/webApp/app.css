@@ -25,6 +25,7 @@ h1 {
 h2 {
     font-size: 4rem;
     margin-bottom: 0;
+    margin-top: 1rem;
 }
 
 p {
@@ -70,9 +71,10 @@ button[type="submit"] {
     padding: 1rem;
 }
 
-form {
+form > div {
     display: flex;
     flex-direction: column;
+    max-width: 70ch;
 }
 
 
@@ -109,8 +111,36 @@ nav ul {
     min-height: 400px;
 }
 
+/* Timeline below here */
+.timeline ul{
+    list-style: none;
+    display: grid;
+}
 
+.timeline li {
+    height: 10px;
+    display: block;
+    background: #373738;
+    position: relative;
+    cursor: pointer;
+}
 
+.timeline li::before {
+    content: "";
+    border-radius: 50%;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    background: #373738;
+    position: absolute;
+    top: -8px;
+    left: -8px;
+} 
+
+.timeline li.active,
+.timeline li.active::before {
+    background: var(--accent);
+}
 
 
 /* Game stuff below here */
