@@ -25,7 +25,24 @@ export default class extends Phaser.Scene {
 
   update() {
     if (this.ready) {
-      this.scene.start('SplashScene')
+      console.log(window.location.pathname);
+      switch (window.location.pathname) {
+        case '/software':
+          this.scene.start('House1Scene');
+          break;
+        case '/art':
+          this.scene.start('House2Scene');
+          break;
+        case '/contact':
+          this.scene.start('House3Scene');
+          break;
+        case '/resume':
+          this.scene.start('House4Scene');
+          break;
+        default:
+          this.scene.start('StreetScene');
+          break;
+      }
     }
   }
 }

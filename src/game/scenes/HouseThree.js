@@ -18,7 +18,7 @@ export default class extends AbstractGame {
     }
 
     addItems() {
-        this.player.x = 500;
+        this.player.x = 600;
         this.player.y = 780;
         this.player.alpha = 0;
         this.background.alpha = 0;
