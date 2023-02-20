@@ -63,7 +63,7 @@
 				{ 
 					"title":"SCAD Career Fair" , 
 					"images":["images/work/scad-career-fair/careerFairApp.jpg","images/work/scad-career-fair/1.jpg","images/work/scad-career-fair/2.jpg","images/work/scad-career-fair/3.jpg"] , 
-					"description": "<p>The SCAD Career Fair is an anual event where students and alumni interview with potential employers. I was responsible for creating a mobile app and website for this event to help the students find and connect with future employers.</p><p>For the App, I used phone Gap and created all of the screens using html and javascript. This enabled me to build the app fast and also support Android and iPhone devices. I have made a few apps using phone gap although I prefer the proformance of native apps. This was the first app that I released on the iPhone and so I learned a lot about submitting apps to the Apple app store.</p>",
+					"description": "<p>The SCAD Career Fair is an annual event where students and alumni interview with potential employers. I was responsible for creating a mobile app and website for this event to help the students find and connect with future employers.</p>",
 					"webLink": "",
 					"androidLink": "",
 					"githubLink":""

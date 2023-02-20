@@ -130,7 +130,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
 
     if (this.target) {
       //walk to target
-      if (this.target.y < this.y - 50) {
+      if (this.target.y < this.y - 20) {
         //you will need to jump to reach the target
         Controller.action2 = true;
       } else {

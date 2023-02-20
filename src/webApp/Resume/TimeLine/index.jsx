@@ -10,7 +10,10 @@ function TimeLine({ startYear = 2009, children }) {
         tabs.push(<li key={children[i].props.title} className={i === selected ? "active" : ""} style={{ gridColumn: 'span ' + children[i].props.years }}
             onClick={() => {
                 setSelected(i);
-            }}></li>);
+            }}>
+            <div className="start">{children[i].props.startYear}</div>
+            <span></span>
+        </li>);
     }
     return (
         <div className='timeline'>

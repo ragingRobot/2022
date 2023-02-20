@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Event({ className, title, children }) {
+function Event({ className, title, children, startYear, endYear }) {
     return (
         <div className={"event " + className}>
             <div className='content'>
-                {title}
+                <h3>{title}</h3>
                 {children}
             </div>
         </div>
