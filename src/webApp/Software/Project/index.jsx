@@ -11,10 +11,22 @@ function Project({
     style,
     onClick,
     selected = false,
+    yRotation = 0,
+    radius = 0,
 }) {
+    const [isFlipped, setIsFlipped] = useState(false);
     const [selectedImage, setSelectedImage] = useState(0);
     return (
-        <li className={"project " + (selected ? "selected" : "")} style={style} onClick={onClick}>
+        <li className={"project " + (selected ? "selected " : "") + (isFlipped ? "flipped " : "")} style={{
+            transform: 'rotateY(' + yRotation + 'deg) translateZ(' + radius + 'px) rotateX(' + (selected && isFlipped ? '-180deg' : '0deg') + ')',
+        }} onClick={() => {
+            if (selected) {
+                setIsFlipped(!isFlipped);
+            } else if (onClick) {
+                onClick();
+            }
+        }}>
+            <span className='top'></span>
             <div className='front'>
                 <div className='image'>
                     <img src={'/assets/' + images[selectedImage]} alt="" />

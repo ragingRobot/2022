@@ -28,9 +28,9 @@ function Software() {
         }}><FaChevronLeft /></button>
         <ul className='projects' style={{ transform: 'translateZ(-800px)  translateY(100px) rotateY(' + (-selected * (360 / work.length)) + 'deg)' }}>
           {work.map((project, index) => {
-            return <Project {...project} selected={index === selected % work.length} style={{
-              transform: 'rotateY(' + (index * (360 / work.length)) + 'deg) translateZ(' + radius + 'px)',
-            }} onClick={() => {
+            return <Project {...project} selected={index === selected % work.length}
+            yRotation={(index * (360 / work.length))}
+            radius={radius} onClick={() => {
               setSelected(index);
             }} />;
           })}
