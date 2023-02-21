@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Switcher from './Switcher';
+import Controller from './Controller';
 
 const appRouting = (
   <Router>
     <Routes>
-      <Route path="/controller" element={<Switcher />} />
+      <Route path="/controller" element={<Controller />} />
     </Routes>
   </Router>
 );

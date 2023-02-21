@@ -25,13 +25,6 @@ function Controller({ character }) {
 
   return (
     <>
-      <div className="container progress-container">
-        <progress max={TOTAL_HEALTH} value={life}>
-          {' '}
-          {life}
-          {' '}
-        </progress>
-      </div>
       <div className="container controller-buttons">
 
         <button

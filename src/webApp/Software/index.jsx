@@ -33,6 +33,7 @@ function Software() {
       </CenteredText>
 
       {isLoading && <div className='projects-container loading'>
+        <strong>Loading...</strong>
         <TbCircleDashed />
       </div>}
       {!isLoading && <div className='projects-container'>

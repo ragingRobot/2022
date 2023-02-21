@@ -23,6 +23,7 @@ export default class extends AbstractGame {
     addItems() {
 
         this.add.sprite(1500, 780, 'gate');
+        Controller.addSocketEvents(this);
     }
 
     checkUrl(pathname) {

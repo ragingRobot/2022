@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
     players[socket.id] = {
       socket: socket.id,
       room: 'game',
-      type: msg.name,
+      type: msg,
     };
     console.log(msg);
     io.to('game').emit('controller connection', { socketId: socket.id, value: msg, numberOfPlayers: Object.keys(players).length });
