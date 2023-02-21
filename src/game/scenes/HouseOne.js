@@ -41,6 +41,9 @@ export default class extends AbstractGame {
         this.background.alpha = 0;
         this.house = new House(this, 500, 870, 1, true);
 
+        const event = new Event("animationComplete");
+        window.dispatchEvent(event);
+
     }
 
     fadeIn() {

@@ -224,6 +224,27 @@ nav ul {
     transform: translateY(75px);
 }
 
+.projects-container.loading {
+    font-size: 8rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects-container.loading svg {
+    fill: #000;
+    stroke-width: .5;
+    animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
 .projects-container::before {
     content: "";
     height: 100%;
@@ -294,7 +315,7 @@ nav ul {
     transition: all 1s;
     display: flex;
     align-items: center;
-    transform: translateZ(-10000px) translateY(100px) rotateY(0deg) rotateX(-90deg);
+    transform: translateZ(-10000px) translateY(100px) rotateY(180deg) rotateX(-90deg);
 }
 
 .project {
