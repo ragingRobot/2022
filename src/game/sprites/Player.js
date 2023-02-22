@@ -25,6 +25,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
     this.touchingGround = false;
     this.setFixedRotation();
     this.currentAction = null;
+    this.action = scene.input.keyboard.addKey('S');  // Get key object
     this.left = scene.input.keyboard.addKey('A');  // Get key object
     this.right = scene.input.keyboard.addKey('D');  // Get key object
     this.up = scene.input.keyboard.addKey('W');  // Get key object
@@ -183,7 +184,7 @@ export default class extends Phaser.Physics.Matter.Sprite {
         this.setVelocityX(0);
       }
     }
-    if (this.cursors.space.isDown || Controller.action1) {
+    if (this.action.isDown || this.cursors.space.isDown || Controller.action1) {
       this.shoot();
     }
     if ((this.up.isDown || this.cursors.up.isDown || Controller.action2) && (this.body.overlapY || this.touchingGround)) {
