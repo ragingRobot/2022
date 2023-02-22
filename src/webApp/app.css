@@ -211,6 +211,27 @@ nav ul {
     padding: 1rem;
 }
 
+@media only screen and (max-width: 480px) {
+    .timeline ul {
+        padding: 0 15px;
+    }
+    .timeline li {
+        height: 5px;
+    }
+
+    .timeline li::before,
+    .timeline li:last-child:after {
+        height: 15px;
+        width: 15px;
+        top: -5px;
+    }
+
+    .timeline li.active span {
+        margin-top: 22px;
+    }
+
+}
+
 /* Projects below here */
 .project-page {
     margin-bottom: -200px;
@@ -268,6 +289,10 @@ nav ul {
     pointer-events: none;
 }
 
+.projects-container:has( .flipped) button {
+    opacity: 0;
+}
+
 .projects-container button {
     z-index: 11;
     position: absolute;
@@ -276,7 +301,7 @@ nav ul {
     border: none;
     font-size: 5rem;
     align-self: center;
-    transition: transform 1s;
+    transition: all 1s;
     transform: translateZ(0px);
     z-index: 2;
     cursor: pointer;
@@ -451,6 +476,31 @@ nav ul {
     background-color: #fff;
     height: 100%;
 }
+
+@media only screen and (max-width: 480px) {
+    .projects-container .projects {
+        scale: .69;
+        top: 50px;
+    }
+    .projects-container .project {
+        min-height: 500px;
+        font-size: 1rem;
+    }
+    .projects-container .project .front {
+        flex-direction: column;
+    }
+    .projects-container .project .image {
+        max-width: 100%;
+        height: auto;
+        align-items: flex-start;
+    }
+    .projects-container button {
+        font-size: 3rem;
+    }    
+}
+
+
+
 /* Game stuff below here */
 .controls {
     display: block;

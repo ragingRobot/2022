@@ -23,6 +23,11 @@ class Controller {
     }
 
   }
+
+  setKey(val = true){
+    this.hasKey = val;
+    this.socket.emit('keyFound', val);
+  }
   addSocketEvents(scene) {
     if (!("ontouchstart" in document.documentElement)) {
       //QR code controlls

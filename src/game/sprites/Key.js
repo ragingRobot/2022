@@ -13,7 +13,7 @@ export default class extends  Phaser.Physics.Matter.Sprite  {
   onCollision(hitBy) {
     if (hitBy.gameObject.isPlayer) {
       hitBy.gameObject.hasKey = true;
-      Controller.hasKey = true;
+      Controller.setKey();
       this.destroy();
     }
   }
