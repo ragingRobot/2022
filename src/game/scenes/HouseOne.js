@@ -25,7 +25,6 @@ export default class extends AbstractGame {
         this.background = new House1Background(this, 1532, 800);
         this.objects.push(new Couch(this, 680, 870));
         this.objects.push(new Tv(this, 810, 870));
-        this.objects.push(new FirePlace(this, 970, 870));
         this.objects.push(new Bed(this, 1200, 870));
         this.objects.push(new Door(this, 1400, 870));
         this.objects.push(new Tub(this, 1510, 870));
@@ -47,12 +46,13 @@ export default class extends AbstractGame {
     }
 
     fadeIn() {
+        const duration = "ontouchstart" in document.documentElement ? 0 : 1;
         var tl = gsap.timeline({ defaults: { ease: "power2.inOut", duration: 1 } });
         tl.to(this.house, {
-            duration: .5,
+            duration,
             x: 500,
         }).to([this.player, this.background, ...this.objects], {
-            duration: 1,
+            duration,
             alpha: 1,
         });
     }

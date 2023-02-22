@@ -16,6 +16,26 @@ export default class extends Phaser.Scene {
   checkUrl(pathname) {
     if (pathname !== this.path) {
       this.player.target = this.house;
+      if ("ontouchstart" in document.documentElement) {
+        switch (pathname) {
+          case '/software':
+            this.scene.start('House1Scene');
+            break;
+          case '/art':
+            this.scene.start('House2Scene');
+            break;
+          case '/contact':
+            this.scene.start('House3Scene');
+            break;
+          case '/resume':
+            this.scene.start('House4Scene');
+            break;
+          default:
+            this.scene.start('StreetScene');
+            break;
+        }
+        return;
+      }
     }
   }
 
@@ -126,12 +146,12 @@ export default class extends Phaser.Scene {
   fadeIn() {
     const houses = this.houses.filter((house) => house.houseNumber !== this.lastHouseNumber);
     const itemsToFade = [this.player, this.background, ...houses, ...this.objects];
-    console.log(itemsToFade);
+
     itemsToFade.forEach(item => {
       item.alpha = 0;
     });
     gsap.timeline().to(itemsToFade, {
-      duration: .5,
+      duration: "ontouchstart" in document.documentElement ? 0 : .5,
       alpha: 1,
       ease: "power2.inOut",
     });

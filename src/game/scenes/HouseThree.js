@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import House from '../sprites/House';
 import AbstractGame from './AbstractGame';
 import House1Background from '../sprites/House1Background';
+import FirePlace from '../sprites/FirePlace';
 
 
 export default class extends AbstractGame {
@@ -15,6 +16,7 @@ export default class extends AbstractGame {
 
     addBackground() {
         this.background = new House1Background(this, 1532, 775);
+        this.objects.push(new FirePlace(this, 1100, 845));
     }
 
     addItems() {
@@ -29,12 +31,17 @@ export default class extends AbstractGame {
     }
 
     fadeIn() {
-        var tl = gsap.timeline({ defaults: { ease: "power2.inOut", duration: 1 } });
+        const itemsToFade = [this.player, this.background, ...this.objects];
+        itemsToFade.forEach(item => {
+            item.alpha = 0;
+        });
+        const duration = "ontouchstart" in document.documentElement ? 0 : 1;
+        var tl = gsap.timeline({ defaults: { ease: "power2.inOut", duration } });
         tl.to(this.house, {
-            duration: 1,
+            duration,
             x: 500,
-        }).to([this.player, this.background], {
-            duration: 1,
+        }).to(itemsToFade, {
+            duration,
             alpha: 1,
         });
     }

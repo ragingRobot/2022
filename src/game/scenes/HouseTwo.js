@@ -36,12 +36,13 @@ export default class extends AbstractGame {
     }
 
     fadeIn() {
-        var tl = gsap.timeline({ defaults: { ease: "power2.inOut", duration: 1 } });
+        const duration = "ontouchstart" in document.documentElement ? 0 : 1;
+        var tl = gsap.timeline({ defaults: { ease: "power2.inOut", duration } });
         tl.to(this.house, {
-            duration: 1,
+            duration,
             x: 500,
         }).to([this.player, this.background, ...this.objects], {
-            duration: 1,
+            duration,
             alpha: 1,
         });
     }

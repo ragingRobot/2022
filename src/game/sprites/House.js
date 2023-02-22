@@ -26,6 +26,7 @@ export default class House extends Phaser.Physics.Matter.Sprite {
     PlayerAction = (navigate = true) => {
         if (this.isExit) {
             if (this.scene.fadeAway) {
+                const duration = "ontouchstart" in document.documentElement ? 0 : 1;
                 this.scene.fadeAway(() => {
                     var tl = gsap.timeline({
                         onComplete: () => {
@@ -42,10 +43,10 @@ export default class House extends Phaser.Physics.Matter.Sprite {
                                     }
                                 });
                             }, 10);
-                        }, defaults: { ease: "power2.inOut", duration: 1 }
+                        }, defaults: { ease: "power2.inOut", duration }
                     });
                     tl.to(this, {
-                        duration: .5,
+                        duration: duration,
                         x: this.startX,
                         y: this.startY,
                     })
