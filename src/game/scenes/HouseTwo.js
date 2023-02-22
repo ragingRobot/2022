@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 import House from '../sprites/House';
 import AbstractGame from './AbstractGame';
 import House1Background from '../sprites/House1Background';
+import Key from '../sprites/Key';
+import Controller from '../Controller';
 
 
 export default class extends AbstractGame {
@@ -24,6 +26,11 @@ export default class extends AbstractGame {
         this.background.alpha = 0;
         this.house = new House(this, 900, 850, 2, true);
 
+        if(!Controller.hasKey){
+            const key = new Key(this, 2000, 900);
+            key.alpha = 0;
+            this.objects.push(key);
+        }
         const event = new Event("animationComplete");
         window.dispatchEvent(event);
     }
@@ -33,7 +40,7 @@ export default class extends AbstractGame {
         tl.to(this.house, {
             duration: 1,
             x: 500,
-        }).to([this.player, this.background], {
+        }).to([this.player, this.background, ...this.objects], {
             duration: 1,
             alpha: 1,
         });

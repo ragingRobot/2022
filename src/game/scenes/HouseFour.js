@@ -6,6 +6,7 @@ import House from '../sprites/House';
 import Ghost from '../sprites/Ghost';
 import AbstractGame from './AbstractGame';
 import House4Background from '../sprites/House4Background';
+import Chest from '../sprites/Chest';
 
 
 export default class extends AbstractGame {
@@ -26,6 +27,9 @@ export default class extends AbstractGame {
         this.player.alpha = 0;
         this.background.alpha = 0;
         this.house = new House(this, 1960, 420, 4, true);
+        const chest = new Chest(this,2000, 390);
+        chest.alpha = 0;
+        this.objects.push(chest);
 
         const event = new Event("animationComplete");
         window.dispatchEvent(event);
@@ -39,7 +43,7 @@ export default class extends AbstractGame {
             duration: 1,
             x: 460,
             y: 800,
-        }).to([this.player, this.background, this.ghost], {
+        }).to([this.player, this.background, this.ghost, ...this.objects], {
             duration: 1,
             alpha: 1,
         });

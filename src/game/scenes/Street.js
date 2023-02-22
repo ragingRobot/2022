@@ -17,6 +17,11 @@ export default class extends AbstractGame {
         this.houses.push(new House(this, 900, 852, 2));
         this.houses.push(new House(this, 1220, 870, 3));
         this.houses.push(new House(this, 1960, 420, 4));
+        this.add.sprite(1700, 550, 'gamesprites', 'sprite-1.png');
+        this.add.sprite(2150, 570, 'gamesprites', 'sprite-2.png');
+        this.add.sprite(300, 910, 'gamesprites', 'sprite-3.png');
+        this.add.sprite(650, 900, 'gamesprites', 'sprite-4.png');
+        this.add.sprite(1130, 875, 'gamesprites', 'sprite-3.png');
         this.background = new Background(this, 1532, 800);
     }
 

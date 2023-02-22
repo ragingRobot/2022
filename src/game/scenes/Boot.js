@@ -11,6 +11,7 @@ export default class extends Phaser.Scene {
     this.load.spritesheet('player', 'assets/images/Player.png', { frameWidth: 140, frameHeight: 140 });
     this.load.spritesheet('ghost', 'assets/images/Ghost.png', { frameWidth: 140, frameHeight: 140 });
     this.load.spritesheet('houseSprites', 'assets/images/houseSprites.png', { frameWidth: 250, frameHeight: 250 });
+    this.load.multiatlas('gamesprites', 'assets/images/gamesprites.json', 'assets/images/');
     this.load.image('background', 'assets/images/background.png');
     this.load.image('house1', 'assets/images/house1.png');
     this.load.image('house2', 'assets/images/house2.png');
@@ -20,7 +21,7 @@ export default class extends Phaser.Scene {
     this.load.image('house4inside', 'assets/images/house4inside.png');
     this.load.image('gate', 'assets/images/gate.png');
     this.load.json('shapes', 'assets/images/backgroundPhysicsShape.json');
-    this.ready = true
+    this.ready = true;
   }
 
   update() {

@@ -14,7 +14,9 @@ export default class extends Phaser.Physics.Matter.Sprite {
     this.game = scene.game;
     this.scene = scene;
     this.activeBullet = [];
+    this.isPlayer = true;
     this.life = 1;
+    this.hasKey = false;
     this.canShoot = true;
     this.isAlive = true;
     this.isActive = true;

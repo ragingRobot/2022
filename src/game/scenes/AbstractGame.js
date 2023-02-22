@@ -70,6 +70,14 @@ export default class extends Phaser.Scene {
     });
 
     this.matter.world.on("collisionstart", (event, bodyA, bodyB) => {
+      if (bodyA.gameObject?.onCollision) {
+        bodyA.gameObject.onCollision(bodyB);
+      }
+
+      if (bodyB.gameObject?.onCollision) {
+        bodyB.gameObject.onCollision(bodyA);
+      }
+
       if (bodyA.gameObject?.PlayerAction && bodyB.gameObject == this.player) {
         this.player.currentAction = bodyA.gameObject.PlayerAction;
       } else if (bodyB.gameObject?.PlayerAction && bodyA.gameObject == this.player) {
@@ -117,7 +125,8 @@ export default class extends Phaser.Scene {
   }
   fadeIn() {
     const houses = this.houses.filter((house) => house.houseNumber !== this.lastHouseNumber);
-    const itemsToFade = [this.player, this.background, ...houses, ...this.objects]
+    const itemsToFade = [this.player, this.background, ...houses, ...this.objects];
+    console.log(itemsToFade);
     itemsToFade.forEach(item => {
       item.alpha = 0;
     });

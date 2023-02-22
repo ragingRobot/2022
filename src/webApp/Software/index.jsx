@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useRef } from 'react';
 import CenteredText from '../CenteredText';
-import Project from './Project';
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { TbCircleDashed } from "react-icons/tb";
+import Carousel from '../Shared/Carousel';
+import Item from '../Shared/Carousel/Item';
 function Software() {
   const [work, setWork] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selected, setSelected] = useState(0);
   useEffect(() => {
 
     window.addEventListener(
@@ -31,28 +28,24 @@ function Software() {
           I am passionate about creating interactive experiences that leave a lasting impression. I believe that good software is not just functional, but also feels great to use. That's why I focus on creating user experiences that are not only seamless, but also engaging and enjoyable. Here, you'll find a mix of projects from my day job and some of my experimental side ventures. From practical applications to quirky experiments, each project has been crafted with care to deliver the best possible user experience.
         </p>
       </CenteredText>
-
-      {isLoading && <div className='projects-container loading'>
-        <strong>Loading...</strong>
-        <TbCircleDashed />
-      </div>}
-      {!isLoading && <div className='projects-container'>
-        <button style={work.length === 0 ? { transform: 'translateZ(900px)' } : null} className="prev" onClick={() => {
-          setSelected(selected - 1);
-        }}><FaChevronLeft /></button>
-        <ul className='projects' style={{ transform: 'translateZ(-800px)  translateY(100px) rotateY(' + (-selected * (360 / work.length)) + 'deg)' }}>
-          {work.map((project, index) => {
-            return <Project {...project} selected={index === selected % work.length}
-              yRotation={(index * (360 / work.length))}
-              radius={radius} onClick={() => {
-                setSelected(index);
-              }} />;
-          })}
-        </ul>
-        <button style={work.length === 0 ? { transform: 'translateZ(900px)' } : null} className="next" onClick={() => {
-          setSelected(selected + 1);
-        }}><FaChevronRight /></button>
-      </div>}
+      <Carousel isLoading={isLoading}>
+        {work.map((project) => {
+          return <Item
+            back={<img src={'/assets/' + project.images[0]} alt="" />}
+          >
+            <>
+              <div className='image'>
+                <img src={'/assets/' + project.images[0]} alt="" />
+              </div>
+              <div className='text'>
+                <h3>{project.title}</h3>
+                <div dangerouslySetInnerHTML={{ __html: project.description }} />
+                <a href={project.webLink} target='_blank'>View The Item</a>
+              </div>
+            </>
+          </Item>;
+        })}
+      </Carousel>
     </div>
   );
 }

@@ -1,0 +1,1 @@
+magick mogrify -trim +repage ./assets/images/sprites/*.png
