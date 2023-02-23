@@ -13,7 +13,7 @@ function Art() {
       "animationComplete",
       (e) => {
         setIsLoading(false);
-        fetch('/assets/json/work.json')
+        fetch('/assets/json/art.json')
           .then((response) => response.json())
           .then((data) => {
             setWork(data.work);
@@ -22,7 +22,6 @@ function Art() {
       false
     );
   }, [])
-  const radius = 800;
   return (
     <div className='project-page'>
       <CenteredText title="Art Projects">
@@ -30,14 +29,15 @@ function Art() {
           I'm excited to share my creations with you. On this page, you'll find a collection of my design and illustration works, both digital and traditional. From playful digital pieces to rich watercolor paintings, each work showcases my love for vibrant hues and dynamic lines. Whether you're a fan of digital art or a lover of traditional mediums, I hope you'll find something here that speaks to you.
         </p>
       </CenteredText>
-      <Carousel items={work} isLoading={isLoading}>
+      <Carousel items={work} radius={600} isLoading={isLoading}>
         {work.map((project) => {
           return <Item
+            className={"artwork " + project.format}
             back={
               <img src={'/assets/' + project.images[0]} alt="" />}
           >
 
-            <img src={'/assets/' + project.images[0]} width={100} alt="" />
+            <img src={'/assets/' + project.images[0]} alt="" />
           </Item>;
         })}
       </Carousel>

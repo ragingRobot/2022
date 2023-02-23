@@ -1,0 +1,82 @@
+{
+	"work": [
+		{
+			"title": "Audrey 2",
+			"thumb": "images/art/audry2.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/audry2.jpg",
+				"images/art/audry2-2.jpg",
+				"images/art/audry2-3.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Abominable",
+			"thumb": "images/art/abominable.jpg",
+			"format": "square",
+			"images": [
+				"images/art/abominable.jpg",
+				"images/art/abominable-2.jpg",
+				"images/art/abominable-3.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Kong",
+			"thumb": "images/art/kong.jpg",
+			"format": "square",
+			"images": [
+				"images/art/kong.jpg",
+				"images/art/kong-2.jpg",
+				"images/art/kong-3.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Love Robot",
+			"thumb": "images/art/bot.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/bot.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Dragon",
+			"thumb": "images/art/dragon.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/dragon.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Godzilla",
+			"thumb": "images/art/zilla.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/zilla.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Sea Monster",
+			"thumb": "images/art/puss.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/puss.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Shark Abduction",
+			"thumb": "images/art/shark.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/shark.jpg"
+			],
+			"description": ""
+		}
+	]
+}

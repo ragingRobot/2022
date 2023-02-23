@@ -7,12 +7,13 @@ function Item({
     radius = 0,
     children,
     back,
+    className,
 }) {
     const [isFlipped, setIsFlipped] = useState(false);
-    const forward = 325;
+    const forward = 1225;
     return (
-        <li className={"project " + (selected ? "selected " : "") + (isFlipped ? "flipped " : "")} style={{
-            transform: 'rotateY(' + yRotation + 'deg) translateZ(' + (selected && isFlipped ? radius + forward : radius) + 'px) rotateX(' + (selected && isFlipped ? '-180deg' : '0deg') + ')',
+        <li className={"project " + className + " " + (selected ? "selected " : "") + (selected && isFlipped ? "flipped " : "")} style={{
+            transform: 'rotateY(' + yRotation + 'deg) translateZ(' + (selected && isFlipped ? forward : radius) + 'px) rotateX(' + (selected && isFlipped ? '-180deg' : '0deg') + ')',
         }} onClick={() => {
             if (selected) {
                 setIsFlipped(!isFlipped);

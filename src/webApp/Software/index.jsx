@@ -31,6 +31,7 @@ function Software() {
       <Carousel isLoading={isLoading}>
         {work.map((project) => {
           return <Item
+          className={"softwareproject"}
             back={<img src={'/assets/' + project.images[0]} alt="" />}
           >
             <>

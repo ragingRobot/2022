@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CenteredText from '../CenteredText';
 import { TimeLine, Event } from './TimeLine';
 
 function Resume() {
     const startYear = 2009;
     const totalYears = new Date().getFullYear() - startYear;
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+
+        window.addEventListener(
+            "animationComplete",
+            (e) => {
+                setIsLoading(false);
+            },
+            false
+        );
+    }, [])
     return (
         <>
             <CenteredText title="Work History">{totalYears} years of professional software engineering experience</CenteredText>
@@ -22,7 +33,7 @@ function Resume() {
                 <li>Expertise in building native Android apps</li>
             </ul>
     */}
-            <TimeLine startYear={startYear}>
+            <TimeLine startYear={startYear} className={isLoading ? '' : 'loaded'}>
                 <Event startYear={2018} endYear={new Date().getFullYear()} years={Math.floor(new Date().getFullYear() - 2018)} title="Senior Software Engineer, Intuit Mailchimp (Apr 2018-Present)">
                     <p>Collaborate with cross-functional teams and contribute to the design, development, and implementation of new features.</p>
                 </Event>

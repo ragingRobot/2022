@@ -1,9 +1,8 @@
 import React, { Children, useEffect, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { TbCircleDashed } from "react-icons/tb";
-function Carousel({ isLoading, children }) {
+function Carousel({ isLoading, children, radius = 800 }) {
     const [selected, setSelected] = useState(0);
-    const radius = 800;
     return (
 
         <>

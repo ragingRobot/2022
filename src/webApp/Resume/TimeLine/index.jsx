@@ -2,7 +2,7 @@ import React, { Children, isValidElement } from 'react';
 import { useState } from 'react';
 import Event from './Event';
 
-function TimeLine({ startYear = 2009, children }) {
+function TimeLine({ startYear = 2009, children, className }) {
     const [selected, setSelected] = useState(0);
     const totalYears = new Date().getFullYear() - startYear;
     const tabs = [];
@@ -16,7 +16,7 @@ function TimeLine({ startYear = 2009, children }) {
         </li>);
     }
     return (
-        <div className='timeline'>
+        <div className={'timeline ' + className}>
             <ul style={{ gridTemplateColumns: 'repeat(' + totalYears + ', 1fr)' }}>
                 {tabs}
             </ul>
