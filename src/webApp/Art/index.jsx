@@ -29,7 +29,7 @@ function Art() {
           I'm excited to share my creations with you. On this page, you'll find a collection of my design and illustration works, both digital and traditional. From playful digital pieces to rich watercolor paintings, each work showcases my love for vibrant hues and dynamic lines. Whether you're a fan of digital art or a lover of traditional mediums, I hope you'll find something here that speaks to you.
         </p>
       </CenteredText>
-      <Carousel items={work} radius={600} isLoading={isLoading}>
+      <Carousel items={work} radius={800} isLoading={isLoading}>
         {work.map((project) => {
           return <Item
             className={"artwork " + project.format}

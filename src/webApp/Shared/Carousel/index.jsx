@@ -12,7 +12,11 @@ function Carousel({ isLoading, children, radius = 800 }) {
             </div>}
             {!isLoading && <div className='projects-container'>
                 <button style={children.length === 0 ? { transform: 'translateZ(900px)' } : null} className="prev" onClick={() => {
-                    setSelected(selected - 1);
+                    if(selected > 0){
+                        setSelected(selected - 1);
+                    } else {
+                        setSelected(children.length - 1)
+                    }
                 }}><FaChevronLeft /></button>
                 <ul className='projects' style={{ transform: 'translateZ(-800px)  translateY(100px) rotateY(' + (-selected * (360 / children.length)) + 'deg)' }}>
                     {React.Children.map(children, (child, index) => {
@@ -30,7 +34,11 @@ function Carousel({ isLoading, children, radius = 800 }) {
                     })}
                 </ul>
                 <button style={children.length === 0 ? { transform: 'translateZ(900px)' } : null} className="next" onClick={() => {
-                    setSelected(selected + 1);
+                    if(selected < children.length - 1) {
+                        setSelected(selected + 1);
+                    } else {
+                        setSelected(0);
+                    }
                 }}><FaChevronRight /></button>
             </div>}
         </>

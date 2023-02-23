@@ -77,6 +77,56 @@
 				"images/art/shark.jpg"
 			],
 			"description": ""
+		},
+		{
+			"title": "Pianopuss",
+			"thumb": "images/art/pianopuss.jpg",
+			"format": "square",
+			"images": [
+				"images/art/pianopuss.jpg"
+			],
+			"description": ""
+		},{
+			"title": "Police Reform",
+			"thumb": "images/art/ftp.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/ftp.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Octoboard",
+			"thumb": "images/art/octoboard.jpg",
+			"format": "skate",
+			"images": [
+				"images/art/octoboard.jpg"
+			],
+			"description": ""
+		},{
+			"title": "Armageddon",
+			"thumb": "images/art/armageddon.jpg",
+			"format": "long",
+			"images": [
+				"images/art/armageddon.jpg"
+			],
+			"description": ""
+		},{
+			"title": "Octopus's Garden",
+			"thumb": "images/art/octupussgarden.jpg",
+			"format": "square",
+			"images": [
+				"images/art/octupussgarden.jpg"
+			],
+			"description": ""
+		},{
+			"title": "Below The Surface",
+			"thumb": "images/art/below.jpg",
+			"format": "supertall",
+			"images": [
+				"images/art/below.jpg"
+			],
+			"description": ""
 		}
 	]
 }
