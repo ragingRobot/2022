@@ -330,7 +330,7 @@ nav ul {
     z-index: 11;
     position: absolute;
     background: transparent;
-    outline: none;
+    border: none;
     border: none;
     font-size: 5rem;
     align-self: center;
@@ -389,8 +389,8 @@ nav ul {
     right: 0;
     background-color: #fff;
     font-size: .8rem;
-    outline: 3px solid black;
-    border-radius: 10px;
+    border: 3px solid black;
+    border-radius: 12px;
     transform-style: preserve-3d;
     transition: transform .5s;
 }
@@ -522,6 +522,11 @@ nav ul {
 .artwork.portrait {
     max-width: 288px;
     min-height: 382px;
+}
+.artwork,
+.artwork .front,
+.artwork .back {
+    background: #000;
 }
 
 .artwork.square {
