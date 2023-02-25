@@ -127,6 +127,42 @@
 				"images/art/below.jpg"
 			],
 			"description": ""
+		},
+		{
+			"title": "Gnome",
+			"thumb": "images/art/gnome.jpg",
+			"format": "square",
+			"images": [
+				"images/art/gnome.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Lawn Care",
+			"thumb": "images/art/gnome-lawn.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/gnome-lawn.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Chicken",
+			"thumb": "images/art/chicken.jpg",
+			"format": "square",
+			"images": [
+				"images/art/chicken.jpg"
+			],
+			"description": ""
+		},
+		{
+			"title": "Ghost",
+			"thumb": "images/art/ghost.jpg",
+			"format": "portrait",
+			"images": [
+				"images/art/ghost.jpg"
+			],
+			"description": ""
 		}
 	]
 }

@@ -8,12 +8,13 @@ function Item({
     children,
     back,
     className,
+    distanceFromCamera,
 }) {
     const [isFlipped, setIsFlipped] = useState(false);
-    const forward = 1225;
+    const forward = 500;
     return (
         <li className={"project " + className + " " + (selected ? "selected " : "") + (selected && isFlipped ? "flipped " : "")} style={{
-            transform: 'rotateY(' + yRotation + 'deg) translateZ(' + (selected && isFlipped ? forward : radius) + 'px) rotateX(' + (selected && isFlipped ? '-180deg' : '0deg') + ')',
+            transform: 'rotateY(' + yRotation + 'deg) translateZ(' + (selected && isFlipped ? forward + radius : radius) + 'px) rotateX(' + (selected && isFlipped ? '-180deg' : '0deg') + ')',
         }} onClick={() => {
             if (selected) {
                 setIsFlipped(!isFlipped);

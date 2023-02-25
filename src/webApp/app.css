@@ -146,6 +146,8 @@ nav ul {
     background: #373738;
     position: relative;
     cursor: pointer;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
 }
 
 .timeline li::before {
@@ -156,9 +158,16 @@ nav ul {
     width: 25px;
     background: #373738;
     position: absolute;
-    top: -8px;
-    left: -8px;
+    top: -10px;
+    left: -12px;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+
 } 
+
+.timeline li:first-child::before {
+    border-left: 3px solid black;
+}
 
 .timeline li.active,
 .timeline li.active::before {
@@ -180,7 +189,7 @@ nav ul {
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
     border-bottom: 25px solid black;
-    margin-top: 28px;
+    margin-top: 30px;
     position: relative;
     opacity: 0;
     transition: opacity 1s 1s;
@@ -208,6 +217,9 @@ nav ul {
     position: absolute;
     top: -8px;
     right: -8px;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
 }
 
 .timeline li .start {
@@ -248,11 +260,11 @@ nav ul {
     .timeline li:last-child:after {
         height: 15px;
         width: 15px;
-        top: -5px;
+        top: -8px;
     }
 
     .timeline li.active span {
-        margin-top: 22px;
+        margin-top: 25px;
     }
 
     .timeline ul:after {
@@ -468,6 +480,7 @@ nav ul {
     outline: 3px solid black;
     filter: contrast(33%) blur(2px) grayscale(100);
     overflow: hidden;
+    box-shadow: 0;
 }
 
 .project.selected .back {
@@ -476,6 +489,11 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.project.selected.flipped .back {
+    transition: box-shadow .5s linear;
+    box-shadow: 0 0 140px 90px #fff;
 }
 
 .project.selected .front{
@@ -490,7 +508,10 @@ nav ul {
 .project.selected  h3{
     color: var(--accent);
 }
-
+.softwareproject {
+    min-width: 540px;
+    min-height: 323px;
+}
 .softwareproject .image {
     position: relative;
     max-width: 190px;
@@ -514,6 +535,10 @@ nav ul {
     padding-left: 1rem;
     background-color: #fff;
     height: 100%;
+}
+
+.softwareproject .back {
+    background-color: #000;
 }
 
 
@@ -572,8 +597,9 @@ nav ul {
         scale: .69;
         top: 50px;
     }
-    .projects-container .project {
-        min-height: 500px;
+    .projects-container .softwareproject {
+        min-width: 375px;
+        min-height: 585px;
         font-size: 1rem;
     }
     .projects-container .project .front {
