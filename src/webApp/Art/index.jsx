@@ -8,16 +8,15 @@ function Art() {
   const [work, setWork] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-
+    fetch('/assets/json/art.json')
+    .then((response) => response.json())
+    .then((data) => {
+      setWork(data.work);
+    });
     window.addEventListener(
       "animationComplete",
       (e) => {
         setIsLoading(false);
-        fetch('/assets/json/art.json')
-          .then((response) => response.json())
-          .then((data) => {
-            setWork(data.work);
-          });
       },
       false
     );

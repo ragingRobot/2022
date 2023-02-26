@@ -28,6 +28,7 @@ function Item({
                 {children}
             </div>
             <div className='back'>{back}</div>
+            <span className='bottom'></span>
         </li>
     );
 }

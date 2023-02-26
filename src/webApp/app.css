@@ -285,20 +285,33 @@ nav ul {
     display: flex;
     z-index: 10;
     height: 260px;
-    transform: translateY(75px);
+    transform: translateY(75px) rotate(0);
 }
-
-.projects-container.loading {
+.carousel {
+    position: relative;
+}
+.carousel .loading {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    z-index: 10;
+}
+.carousel .loading + .projects-container .project .top,
+.carousel .loading + .projects-container .project .back {
+    color: #000;
+    backface-visibility: visible;
+    height: 70px;
+    top: -25px;
 }
 
-.projects-container.loading svg {
-    fill: #000;
-    stroke-width: .5;
-    font-size: 8rem;
-    animation: rotation 4s infinite linear;
+.projects-container.projects-loading svg,
+.projects-container.projects-loading::before,
+.projects-container.projects-loading::after,
+.projects-container.projects-loading button  {
+    display: none;
 }
 
 @keyframes rotation {
@@ -306,7 +319,7 @@ nav ul {
       transform: rotate(0deg);
     }
     to {
-      transform: rotate(359deg);
+      transform: rotate(-359deg);
     }
   }
 
@@ -387,9 +400,12 @@ nav ul {
     transition: all 1s;
     display: flex;
     align-items: center;
-    transform: translateZ(-10000px) translateY(100px) rotateY(180deg) rotateX(-90deg);
+    transform: translateZ(-10000px) translateY(100px) rotateX(-90deg) rotateZ(0deg);
 }
 
+.projects-container.projects-loading {
+    animation: rotation infinite 4s linear;
+}
 .project {
     display: flex;
     align-items: center;
@@ -420,7 +436,21 @@ nav ul {
     position: absolute;
     top: 0;
     transform: translateY(-10px) translateZ(0px) translateX(0) rotateX(90deg);
-    backface-visibility: hidden;
+    width: 100%;
+    z-index: -1;
+    right: 0;
+    margin: auto;
+}
+
+.project .bottom {
+    background-color: #000;
+    border-radius: 10px 0 0 10px;
+    content: "";
+    height: 20px;
+    left: 0;
+    position: absolute;
+    bottom: -12px;
+    transform: translateY(0px) translateZ(-2px) translate(0) rotateX(-90deg);
     width: 100%;
     z-index: -1;
     right: 0;

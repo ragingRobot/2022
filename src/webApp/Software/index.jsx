@@ -6,16 +6,15 @@ function Software() {
   const [work, setWork] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-
+    fetch('/assets/json/work.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setWork(data.work);
+      });
     window.addEventListener(
       "animationComplete",
       (e) => {
         setIsLoading(false);
-        fetch('/assets/json/work.json')
-          .then((response) => response.json())
-          .then((data) => {
-            setWork(data.work);
-          });
       },
       false
     );
@@ -30,7 +29,7 @@ function Software() {
       <Carousel isLoading={isLoading} radius={1100}>
         {work.map((project) => {
           return <Item
-          className="softwareproject"
+            className="softwareproject"
             back={<img src={'/assets/' + project.images[0]} alt="" />}
           >
             <>

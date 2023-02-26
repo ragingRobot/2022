@@ -5,12 +5,11 @@ function Carousel({ isLoading, children, radius = 800, distanceFromCamera = 100 
     const [selected, setSelected] = useState(0);
     return (
 
-        <>
-            {isLoading && <div className='projects-container loading'>
+        <div className='carousel'>
+        {isLoading && <div className='loading'>
                 <strong>Loading...</strong>
-                <TbCircleDashed />
             </div>}
-            {!isLoading && <div className='projects-container'>
+            {<div className={'projects-container ' + (isLoading ? "projects-loading " : "")}>
                 <button style={children.length === 0 ? { transform: 'translateZ(900px)' } : null} className="prev" onClick={() => {
                     if (selected > 0) {
                         setSelected(selected - 1);
@@ -18,7 +17,7 @@ function Carousel({ isLoading, children, radius = 800, distanceFromCamera = 100 
                         setSelected(children.length - 1)
                     }
                 }}><FaChevronLeft /></button>
-                <ul className='projects' style={{ transform: 'translateZ(-' + (radius + distanceFromCamera) + 'px)  translateY(100px) rotateY(' + (-selected * (360 / children.length)) + 'deg)' }}>
+                <ul className={'projects '} style={isLoading ? null :{ transform: 'translateZ(-' + (radius + distanceFromCamera) + 'px)  translateY(100px) rotateY(' + (-selected * (360 / children.length)) + 'deg)' }}>
                     {React.Children.map(children, (child, index) => {
                         if (React.isValidElement(child)) {
                             return React.cloneElement(child, {
@@ -42,7 +41,7 @@ function Carousel({ isLoading, children, radius = 800, distanceFromCamera = 100 
                     }
                 }}><FaChevronRight /></button>
             </div>}
-        </>
+        </div>
     );
 }
 
