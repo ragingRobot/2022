@@ -25,10 +25,11 @@ export default class extends Phaser.Physics.Matter.Sprite {
     this.touchingGround = false;
     this.setFixedRotation();
     this.currentAction = null;
-    this.action = scene.input.keyboard.addKey('S');  // Get key object
-    this.left = scene.input.keyboard.addKey('A');  // Get key object
-    this.right = scene.input.keyboard.addKey('D');  // Get key object
-    this.up = scene.input.keyboard.addKey('W');  // Get key object
+    this.space = scene.input.keyboard.addKey('space', false);
+    this.action = scene.input.keyboard.addKey('S', false);  // Get key object
+    this.left = scene.input.keyboard.addKey('A', false);  // Get key object
+    this.right = scene.input.keyboard.addKey('D', false);  // Get key object
+    this.up = scene.input.keyboard.addKey('W', false);  // Get key object
 
 
     scene.anims.create({

@@ -45,6 +45,7 @@ export default class extends Phaser.Scene {
   }
 
   create() {
+    window.game = this.game;
     this.matter.world.setBounds(0, 0, 2400, 1000);
     this.cameras.main.setBackgroundColor('#ffffff');
     this.addBackground();

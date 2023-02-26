@@ -37,6 +37,7 @@
     "nodemon": "^2.0.19"
   },
   "dependencies": {
+    "body-parser": "^1.20.2",
     "bootstrap": "^5.2.2",
     "concurrently": "^7.6.0",
     "esbuild": "^0.15.10",
@@ -45,6 +46,7 @@
     "formik": "^2.2.9",
     "gsap": "^3.11.3",
     "matter-js": "^0.18.0",
+    "nodemailer": "^6.9.1",
     "npm-watch": "^0.11.0",
     "phaser": "^3.55.2",
     "phaser-matter-collision-plugin": "^1.0.0",

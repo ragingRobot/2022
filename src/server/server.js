@@ -8,6 +8,10 @@ const { Server } = require('socket.io');
 
 const io = new Server(server);
 const PORT = process.env.PORT || 8989;
+const { sendEmailMessage } = require('./email');
+
+app.use(express.json());
+app.use(express.urlencoded());
 
 app.get(['/', '/art', '/software', '/resume', '/contact'], (req, res) => {
   res.sendFile(`${process.cwd()}/html/index.html`);
@@ -17,6 +21,14 @@ app.get('/controller', (req, res) => {
 });
 app.use('/dist', express.static('dist'));
 app.use('/assets', express.static('assets'));
+
+
+app.post('/sendMessage', (req, res) => {
+  console.log(`${req.body.subject}`);
+  sendEmailMessage({subject: req.body.subject,sender:req.body.sender,content: req.body.content}).then((data)=>{
+    res.send({ status: data.response });
+  }).catch(console.error);
+});
 
 
 const players = {};

@@ -63,8 +63,11 @@ a[aria-current="page"]:visited {
 
 
 input, textarea {
-    border: 1px solid #ddd;
+    border: 3px solid #000;
     padding: 1rem;
+    margin: 1rem 0;
+    max-width: 500px;
+    width: 100%;
   }
   
 button[type="submit"] {
@@ -75,13 +78,6 @@ button[type="submit"] {
     color: #fff;
     padding: 1rem;
 }
-
-form > div {
-    display: flex;
-    flex-direction: column;
-    max-width: 70ch;
-}
-
 
 .centered {
     text-align: center;
@@ -670,6 +666,22 @@ nav ul {
     }
 }
 
+
+/* fall menu thing below here */
+.fallDown {
+    perspective: 1000px;
+}
+
+.fallDown .fallItem {
+    transform-origin: top center;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.fallDown.loading .fallItem {
+    transform: rotateX(-180deg);
+}
 
 
 /* Game stuff below here */
