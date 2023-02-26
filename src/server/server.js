@@ -19,8 +19,8 @@ app.get(['/', '/art', '/software', '/resume', '/contact'], (req, res) => {
 app.get('/controller', (req, res) => {
   res.sendFile(`${process.cwd()}/html/controller.html`);
 });
-app.use('/dist', express.static('dist'));
-app.use('/assets', express.static('assets'));
+app.use('/dist', express.static(`${process.cwd()}/dist`));
+app.use('/assets', express.static(`${process.cwd()}/assets`));
 
 
 app.post('/sendMessage', (req, res) => {
