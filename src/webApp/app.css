@@ -578,7 +578,6 @@ nav ul {
 
 
 
-
 .artwork.portrait {
     max-width: 288px;
     min-height: 382px;
@@ -587,7 +586,40 @@ nav ul {
 .artwork .front,
 .artwork .back {
     background: #000;
+    overflow: visible;
 }
+
+.artwork .front .image {
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.artwork .art-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.artwork .art-container .info {
+    position: absolute;
+    bottom: -72px;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition: opacity .5s linear;
+}
+
+.artwork .art-container .info p {
+    margin-top: 0;
+    padding-top: .5rem;
+}
+
+.artwork.selected .art-container .info {
+    opacity: 1;
+}
+
 
 .artwork.square {
     max-width: 300px;

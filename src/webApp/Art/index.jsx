@@ -9,10 +9,10 @@ function Art() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     fetch('/assets/json/art.json')
-    .then((response) => response.json())
-    .then((data) => {
-      setWork(data.work);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        setWork(data.work);
+      });
     window.addEventListener(
       "animationComplete",
       (e) => {
@@ -35,8 +35,13 @@ function Art() {
             back={
               <img src={'/assets/' + project.images[0]} alt="" />}
           >
-
-            <img src={'/assets/' + project.images[0]} alt="" />
+            <div className='art-container'>
+              <div className='image'><img src={'/assets/' + project.images[0]} alt="" /></div>
+              <div className='info'>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
+            </div>
           </Item>;
         })}
       </Carousel>

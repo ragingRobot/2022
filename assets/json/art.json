@@ -9,7 +9,7 @@
 				"images/art/audry2-2.jpg",
 				"images/art/audry2-3.jpg"
 			],
-			"description": ""
+			"description": "Water color on paper 11 x 17 framed - $1500"
 		},
 		{
 			"title": "Abominable",
@@ -20,7 +20,7 @@
 				"images/art/abominable-2.jpg",
 				"images/art/abominable-3.jpg"
 			],
-			"description": ""
+			"description": "Water color on paper 6 x 6 framed - $250"
 		},
 		{
 			"title": "Kong",
@@ -31,7 +31,7 @@
 				"images/art/kong-2.jpg",
 				"images/art/kong-3.jpg"
 			],
-			"description": ""
+			"description": "Water color on paper 6 x 6 framed - $250"
 		},
 		{
 			"title": "Love Robot",
@@ -40,7 +40,7 @@
 			"images": [
 				"images/art/bot.jpg"
 			],
-			"description": ""
+			"description": "Colored pencil on paper 9 x 12 framed - $500"
 		},
 		{
 			"title": "Dragon",
@@ -49,7 +49,7 @@
 			"images": [
 				"images/art/dragon.jpg"
 			],
-			"description": ""
+			"description": "Colored pencil on paper 9 x 12 framed - $500"
 		},
 		{
 			"title": "Godzilla",
@@ -58,7 +58,7 @@
 			"images": [
 				"images/art/zilla.jpg"
 			],
-			"description": ""
+			"description": "Colored pencil on paper 9 x 12 framed - $500"
 		},
 		{
 			"title": "Sea Monster",
@@ -67,7 +67,7 @@
 			"images": [
 				"images/art/puss.jpg"
 			],
-			"description": ""
+			"description": "Colored pencil on paper 9 x 12 framed - $500"
 		},
 		{
 			"title": "Shark Abduction",
@@ -76,7 +76,7 @@
 			"images": [
 				"images/art/shark.jpg"
 			],
-			"description": ""
+			"description": "Colored pencil on paper 9 x 12 framed - $500"
 		},
 		{
 			"title": "Pianopuss",
@@ -85,7 +85,7 @@
 			"images": [
 				"images/art/pianopuss.jpg"
 			],
-			"description": ""
+			"description": "Water color on paper 12 x 12 framed - SOLD"
 		},{
 			"title": "Police Reform",
 			"thumb": "images/art/ftp.jpg",
@@ -93,7 +93,7 @@
 			"images": [
 				"images/art/ftp.jpg"
 			],
-			"description": ""
+			"description": "Water color on paper 11 x 17 framed - SOLD"
 		},
 		{
 			"title": "Octoboard",
@@ -102,7 +102,7 @@
 			"images": [
 				"images/art/octoboard.jpg"
 			],
-			"description": ""
+			"description": "Acrylic on skateboard - SOLD"
 		},{
 			"title": "Armageddon",
 			"thumb": "images/art/armageddon.jpg",
@@ -118,15 +118,7 @@
 			"images": [
 				"images/art/octupussgarden.jpg"
 			],
-			"description": ""
-		},{
-			"title": "Below The Surface",
-			"thumb": "images/art/below.jpg",
-			"format": "supertall",
-			"images": [
-				"images/art/below.jpg"
-			],
-			"description": ""
+			"description": "Acrylic on vinyl 12 x 12 framed - $250"
 		},
 		{
 			"title": "Gnome",
@@ -135,7 +127,7 @@
 			"images": [
 				"images/art/gnome.jpg"
 			],
-			"description": ""
+			"description": "Water color on paper 12 x 12 framed - SOLD"
 		},
 		{
 			"title": "Lawn Care",
@@ -153,7 +145,7 @@
 			"images": [
 				"images/art/chicken.jpg"
 			],
-			"description": ""
+			"description": "Water color on paper 12 x 12 framed - SOLD"
 		},
 		{
 			"title": "Ghost",
