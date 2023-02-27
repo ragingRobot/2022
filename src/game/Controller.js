@@ -26,7 +26,11 @@ class Controller {
 
   setKey(val = true){
     this.hasKey = val;
+    try{
     this.socket.emit('keyFound', val);
+    } catch(err){
+      //I dont care just dont crash the page anymore
+    }
   }
   addSocketEvents(scene) {
     if (!("ontouchstart" in document.documentElement)) {

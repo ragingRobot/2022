@@ -416,7 +416,12 @@ nav ul {
     border: 3px solid black;
     border-radius: 12px;
     transform-style: preserve-3d;
-    transition: transform .5s;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.project:hover {
+    box-shadow: 0px 0px 20px 10px var(--accent);
 }
 
 .project.flipped {
@@ -549,6 +554,10 @@ nav ul {
     justify-content: center;
     align-items: center;
 }
+.softwareproject img {
+    max-width: 100%;
+    height: auto;
+}
 .softwareproject .image img {
     width: 100%;
     height: auto;
@@ -595,7 +604,8 @@ nav ul {
 .artwork.skate .back {
     border-radius: 50px;
 }
-.artwork.skate .top {
+.artwork.skate .top,
+.artwork.skate .bottom {
     width: 80%;
 }
 .artwork.skate::before {

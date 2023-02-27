@@ -30,9 +30,7 @@ function Software() {
         {work.map((project) => {
           return <Item
             className="softwareproject"
-            back={<img src={'/assets/' + project.images[0]} alt="" />}
-          >
-            <>
+            back={<>
               <div className='image'>
                 <img src={'/assets/' + project.images[0]} alt="" />
               </div>
@@ -41,7 +39,9 @@ function Software() {
                 <div dangerouslySetInnerHTML={{ __html: project.description }} />
                 <a href={project.webLink} target='_blank'>View The Item</a>
               </div>
-            </>
+            </>}
+          >
+            <img src={'/assets/' + project.images[0]} alt="" />
           </Item>;
         })}
       </Carousel>

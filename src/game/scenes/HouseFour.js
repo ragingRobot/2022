@@ -7,6 +7,11 @@ import Ghost from '../sprites/Ghost';
 import AbstractGame from './AbstractGame';
 import House4Background from '../sprites/House4Background';
 import Chest from '../sprites/Chest';
+import Table from '../sprites/Table';
+import FancyBed from '../sprites/FancyBed';
+import FancyCouch from '../sprites/FancyCouch';
+import FancyChair from '../sprites/FancyChair';
+import BookShelf from '../sprites/BookShelf';
 
 
 export default class extends AbstractGame {
@@ -17,6 +22,13 @@ export default class extends AbstractGame {
 
     addBackground() {
         this.background = new House4Background(this, 1400, 450);
+        this.objects.push(this.add.sprite(1000, 510, 'gamesprites', 'House4sprites-14.png'));
+        this.objects.push(this.add.sprite(1300, 500, 'gamesprites', 'House4sprites-13.png'));
+        this.objects.push(new Table(this, 1200, 790));
+        this.objects.push(new FancyBed(this, 2050, 885));
+        this.objects.push(new FancyCouch(this, 1050, 960));
+        this.objects.push(new FancyChair(this, 1650, 690));
+        this.objects.push(new BookShelf(this, 2050, 460));
     }
 
     addItems() {
@@ -27,7 +39,7 @@ export default class extends AbstractGame {
         this.player.alpha = 0;
         this.background.alpha = 0;
         this.house = new House(this, 1960, 420, 4, true);
-        const chest = new Chest(this,2000, 390);
+        const chest = new Chest(this,1700, 410);
         chest.alpha = 0;
         this.objects.push(chest);
 
@@ -36,6 +48,9 @@ export default class extends AbstractGame {
     }
 
     fadeIn() {
+        this.objects.forEach((item)=> {
+            item.alpha = 0;
+        });
         const duration = "ontouchstart" in document.documentElement ? 0 : 1;
         var tl = gsap.timeline({
             defaults: { ease: "power2.inOut", duration }
