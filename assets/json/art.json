@@ -1,13 +1,22 @@
 {
 	"work": [
 		{
+			"title": "How to be a cat",
+			"thumb": "images/art/Howtobeacat.mp4",
+			"format": "catbox",
+			"images": [
+				"images/art/Howtobeacat.mp4"
+			],
+			"description": "Interactive Diorama - $5000"
+		},
+		{
 			"title": "Audrey 2",
 			"thumb": "images/art/audry2.jpg",
 			"format": "portrait",
 			"images": [
 				"images/art/audry2.jpg",
-				"images/art/audry2-2.jpg",
-				"images/art/audry2-3.jpg"
+				"images/art/audry2-3.jpg",
+				"images/art/audry2-2.jpg"
 			],
 			"description": "Water color on paper 11 x 17 framed - $1500"
 		},
@@ -17,8 +26,8 @@
 			"format": "square",
 			"images": [
 				"images/art/abominable.jpg",
-				"images/art/abominable-2.jpg",
-				"images/art/abominable-3.jpg"
+				"images/art/abominable-3.jpg",
+				"images/art/abominable-2.jpg"
 			],
 			"description": "Water color on paper 6 x 6 framed - $250"
 		},
@@ -28,8 +37,8 @@
 			"format": "square",
 			"images": [
 				"images/art/kong.jpg",
-				"images/art/kong-2.jpg",
-				"images/art/kong-3.jpg"
+				"images/art/kong-3.jpg",
+				"images/art/kong-2.jpg"
 			],
 			"description": "Water color on paper 6 x 6 framed - $250"
 		},
@@ -150,7 +159,7 @@
 		{
 			"title": "Ghost",
 			"thumb": "images/art/ghost.jpg",
-			"format": "portrait",
+			"format": "catbox",
 			"images": [
 				"images/art/ghost.jpg"
 			],

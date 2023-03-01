@@ -26,7 +26,6 @@ export default class extends Phaser.Scene {
 
   update() {
     if (this.ready) {
-      console.log(window.location.pathname);
       switch (window.location.pathname) {
         case '/software':
           this.scene.start('House1Scene');

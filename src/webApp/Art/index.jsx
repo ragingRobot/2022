@@ -32,11 +32,10 @@ function Art() {
         {work.map((project) => {
           return <Item
             className={"artwork " + project.format}
-            back={
-              <img src={'/assets/' + project.images[0]} alt="" />}
+            back={project.images[0].indexOf(".mp4") > -1 ? <video src={'/assets/' + project.images[0]} autoplay="true" playsinline="true" muted="true" loop="true" /> : <img src={'/assets/' + project.images[project.images.length - 1]} alt="" />}
           >
             <div className='art-container'>
-              <div className='image'><img src={'/assets/' + project.images[0]} alt="" /></div>
+              <div className='image'>{project.images[0].indexOf(".mp4") > -1 ? <video src={'/assets/' + project.images[0]} autoplay="true" playsinline="true" muted="true" loop="true" /> : <img src={'/assets/' + project.images[0]} alt="" />}</div>
               <div className='info'>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>

@@ -531,7 +531,8 @@ nav ul {
     filter: grayscale(0);
 }
 
-.project .back img {
+.project .back img,
+.project .back video {
     max-width: 100%;
     max-height: 100%;
 }
@@ -554,11 +555,13 @@ nav ul {
     justify-content: center;
     align-items: center;
 }
-.softwareproject img {
+.softwareproject img,
+.softwareproject video {
     max-width: 100%;
     height: auto;
 }
-.softwareproject .image img {
+.softwareproject .image img,
+.softwareproject .image video {
     width: 100%;
     height: auto;
 }
@@ -581,6 +584,11 @@ nav ul {
 .artwork.portrait {
     max-width: 288px;
     min-height: 382px;
+}
+
+.artwork.catbox {
+    max-width: 288px;
+    min-height: 412px;
 }
 .artwork,
 .artwork .front,
@@ -656,7 +664,8 @@ nav ul {
     max-width: 68px;
     min-height: 450px;
 }
-.artwork img {
+.artwork img,
+.artwork video {
     max-width: 100%;
 }
 
@@ -723,6 +732,16 @@ nav ul {
 
 .fallDown.loading .fallItem {
     transform: rotateX(-180deg);
+}
+
+.contact {
+    margin-bottom: -200px;
+    z-index: 10;
+}
+
+.resume {
+    margin-bottom: -50px;
+    z-index: 10;
 }
 
 

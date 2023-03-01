@@ -15,7 +15,7 @@ function App({ children }) {
   }, [location]);
 
   return (
-    <div className="pageContent">
+    <div className={"pageContent " + location.pathname.replace('/','')}>
       <Header />
       {children}
     </div>

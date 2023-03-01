@@ -63,17 +63,18 @@ function Contact() {
         <Form>
           <div>
             <h2>Contact</h2>
+            <p>Want to create something awesome together? I'm all ears! If you're interested in collaborating on a project or have an idea that you think I can help bring to life, I'd love to hear from you. Whether it's software or art, or a blend of the two, I'm always looking for new and exciting ways to create interactive experiences that leave a lasting impression. You can get in touch with me by filling out the contact form below or by sending me an email at jmilst20@gmail.com. Let's create something amazing together</p>
             <FallDown isLoading={isLoading}>
               <div>
-                <Field type="email" name="email" onBlur={onBlur} onFocus={onFocus} />
+                <Field type="email" name="email" placeholder="Email Address" onBlur={onBlur} onFocus={onFocus} />
                 <ErrorMessage name="email" component="div" />
               </div>
               <div>
-                <Field name="subject" onBlur={onBlur} onFocus={onFocus} />
+                <Field name="subject" placeholder="Subject" onBlur={onBlur} onFocus={onFocus} />
                 <ErrorMessage name="subject" component="div" />
               </div>
               <div>
-                <Field as="textarea" name="message" onBlur={onBlur} onFocus={onFocus} />
+                <Field as="textarea" placeholder="Message" name="message" onBlur={onBlur} onFocus={onFocus} />
                 <ErrorMessage name="message" component="div" onBlur={onBlur} onFocus={onFocus} />
               </div>
               <button type="submit" disabled={isSubmitting}>
