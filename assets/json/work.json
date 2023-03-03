@@ -1,7 +1,15 @@
 {
 	"work": [
 	
-		  		{ 
+		{ 
+			"title":"Mailchimp" , 
+			"thumb": "images/work/mailchimp/mailchimp.png",
+			"images":["images/work/mailchimp/mailchimp.png"] , 
+			"description": "<p>I currently work at Mailchimp as a Senior Software Engineer. I focus mostly on the frontend and I work on the partnerships team building tools for Mailchimp partners.</p>",
+			"webLink": "https://www.mailchimp.com",
+			"androidLink": "",
+			"githubLink":""
+		},{ 
 					"title":"Mercedes Me Web App" , 
 					"thumb": "images/work/thumbnails/mbme.jpg",
 					"images":["images/work/mercedes-me/mbme.jpg"] , 

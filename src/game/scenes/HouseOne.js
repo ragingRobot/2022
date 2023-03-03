@@ -13,6 +13,7 @@ import Tub from '../sprites/Tub';
 import Toilet from '../sprites/Toilet';
 import Washer from '../sprites/Washer';
 import Door from '../sprites/Door';
+import Computer from '../sprites/Computer';
 
 
 export default class extends AbstractGame {
@@ -30,7 +31,7 @@ export default class extends AbstractGame {
         this.objects.push(new Tub(this, 1510, 870));
         this.objects.push(new Toilet(this, 1650, 865));
         this.objects.push(new Washer(this, 1910, 870));
-        this.objects.forEach(item => item.alpha = 0);
+        this.objects.push(new Computer(this, 1050,1010));
     }
 
     addItems() {
@@ -46,6 +47,7 @@ export default class extends AbstractGame {
     }
 
     fadeIn() {
+        this.objects.forEach(item => item.alpha = 0);
         const duration = "ontouchstart" in document.documentElement ? 0 : 1;
         var tl = gsap.timeline({ defaults: { ease: "power2.inOut", duration: 1 } });
         tl.to(this.house, {

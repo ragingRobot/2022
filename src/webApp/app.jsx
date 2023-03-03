@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './app.css';
+import './app.less';
 import Header from './Header';
 
 function App({ children }) {

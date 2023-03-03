@@ -1,7 +1,7 @@
 {
 	"work": [
 		{
-			"title": "How to be a cat",
+			"title": "How To Be A Cat",
 			"thumb": "images/art/Howtobeacat.mp4",
 			"format": "catbox",
 			"images": [
@@ -19,6 +19,15 @@
 				"images/art/audry2-2.jpg"
 			],
 			"description": "Water color on paper 11 x 17 framed - $1500"
+		},
+		{
+			"title": "Inside The Graveyard",
+			"thumb": "images/art/Spookydiorama.mp4",
+			"format": "smalldiorama",
+			"images": [
+				"images/art/Spookydiorama.mp4"
+			],
+			"description": "Animated Diorama - $250"
 		},
 		{
 			"title": "Abominable",

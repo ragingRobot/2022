@@ -1,11 +1,12 @@
 #!/usr/bin/env node
+const stylePlugin = require('esbuild-style-plugin');
 require('esbuild').build({
   entryPoints: ['./src/webApp/index.jsx'],
   bundle: true,
   minify: true,
   sourcemap: true,
   watch: true,
-  plugins: [],
+  plugins: [stylePlugin()],
   loader: {
     '.jpg': 'file',
     '.png': 'dataurl'
