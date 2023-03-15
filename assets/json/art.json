@@ -7,7 +7,7 @@
 			"images": [
 				"images/art/Howtobeacat.mp4"
 			],
-			"description": "Interactive Diorama - $5000"
+			"description": "Interactive Diorama"
 		},
 		{
 			"title": "Audrey 2",
@@ -18,7 +18,7 @@
 				"images/art/audry2-3.jpg",
 				"images/art/audry2-2.jpg"
 			],
-			"description": "Water color on paper 11 x 17 framed - $1500"
+			"description": "Water color on paper 11 x 17 framed"
 		},
 		{
 			"title": "Inside The Graveyard",
@@ -27,7 +27,7 @@
 			"images": [
 				"images/art/Spookydiorama.mp4"
 			],
-			"description": "Animated Diorama - $250"
+			"description": "Animated Diorama"
 		},
 		{
 			"title": "Abominable",
@@ -38,7 +38,7 @@
 				"images/art/abominable-3.jpg",
 				"images/art/abominable-2.jpg"
 			],
-			"description": "Water color on paper 6 x 6 framed - $250"
+			"description": "Water color on paper 6 x 6 framed"
 		},
 		{
 			"title": "Kong",
@@ -49,7 +49,7 @@
 				"images/art/kong-3.jpg",
 				"images/art/kong-2.jpg"
 			],
-			"description": "Water color on paper 6 x 6 framed - $250"
+			"description": "Water color on paper 6 x 6 framed"
 		},
 		{
 			"title": "Love Robot",
@@ -58,7 +58,7 @@
 			"images": [
 				"images/art/bot.jpg"
 			],
-			"description": "Colored pencil on paper 9 x 12 framed - $500"
+			"description": "Colored pencil on paper 9 x 12 framed"
 		},
 		{
 			"title": "Dragon",
@@ -67,7 +67,7 @@
 			"images": [
 				"images/art/dragon.jpg"
 			],
-			"description": "Colored pencil on paper 9 x 12 framed - $500"
+			"description": "Colored pencil on paper 9 x 12 framed"
 		},
 		{
 			"title": "Godzilla",
@@ -76,7 +76,7 @@
 			"images": [
 				"images/art/zilla.jpg"
 			],
-			"description": "Colored pencil on paper 9 x 12 framed - $500"
+			"description": "Colored pencil on paper 9 x 12 framed"
 		},
 		{
 			"title": "Sea Monster",
@@ -85,7 +85,7 @@
 			"images": [
 				"images/art/puss.jpg"
 			],
-			"description": "Colored pencil on paper 9 x 12 framed - $500"
+			"description": "Colored pencil on paper 9 x 12 framed"
 		},
 		{
 			"title": "Shark Abduction",
@@ -94,7 +94,7 @@
 			"images": [
 				"images/art/shark.jpg"
 			],
-			"description": "Colored pencil on paper 9 x 12 framed - $500"
+			"description": "Colored pencil on paper 9 x 12 framed"
 		},
 		{
 			"title": "Pianopuss",
@@ -103,7 +103,7 @@
 			"images": [
 				"images/art/pianopuss.jpg"
 			],
-			"description": "Water color on paper 12 x 12 framed - SOLD"
+			"description": "Water color on paper 12 x 12 framed"
 		},{
 			"title": "Police Reform",
 			"thumb": "images/art/ftp.jpg",
@@ -111,7 +111,7 @@
 			"images": [
 				"images/art/ftp.jpg"
 			],
-			"description": "Water color on paper 11 x 17 framed - SOLD"
+			"description": "Water color on paper 11 x 17 framed"
 		},
 		{
 			"title": "Octoboard",
@@ -120,7 +120,7 @@
 			"images": [
 				"images/art/octoboard.jpg"
 			],
-			"description": "Acrylic on skateboard - SOLD"
+			"description": "Acrylic on skateboard"
 		},{
 			"title": "Armageddon",
 			"thumb": "images/art/armageddon.jpg",
@@ -136,7 +136,7 @@
 			"images": [
 				"images/art/octupussgarden.jpg"
 			],
-			"description": "Acrylic on vinyl 12 x 12 framed - $250"
+			"description": "Acrylic on vinyl 12 x 12 framed"
 		},
 		{
 			"title": "Gnome",
@@ -145,7 +145,7 @@
 			"images": [
 				"images/art/gnome.jpg"
 			],
-			"description": "Water color on paper 12 x 12 framed - SOLD"
+			"description": "Water color on paper 12 x 12 framed"
 		},
 		{
 			"title": "Lawn Care",
@@ -163,7 +163,7 @@
 			"images": [
 				"images/art/chicken.jpg"
 			],
-			"description": "Water color on paper 12 x 12 framed - SOLD"
+			"description": "Water color on paper 12 x 12 framed"
 		},
 		{
 			"title": "Ghost",

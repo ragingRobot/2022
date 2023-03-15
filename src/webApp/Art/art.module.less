@@ -1,0 +1,93 @@
+
+.artwork.portrait {
+    max-width: 288px;
+    min-height: 382px;
+}
+
+.artwork.catbox {
+    max-width: 288px;
+    min-height: 412px;
+}
+
+.artwork.smalldiorama {
+    max-width: 287px;
+    min-height: 354px;
+}
+.artwork,
+.artwork .front,
+.artwork .back {
+    background: #000;
+    overflow: visible;
+}
+
+.artwork .front .image {
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.artwork .artContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    position: absolute;
+    bottom: -72px;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition: opacity .5s linear;
+}
+
+.info p {
+    margin-top: 0;
+    padding-top: .5rem;
+}
+
+.artwork.selected .artContainer .info {
+    opacity: 1;
+}
+
+
+.artwork.square {
+    max-width: 300px;
+    min-height: 300px;
+}
+
+.artwork.skate {
+    max-width: 360px;
+    min-height: 100px;
+    border-radius: 50px;
+}
+
+.artwork.skate .front,
+.artwork.skate .back {
+    border-radius: 50px;
+}
+.artwork.skate .top,
+.artwork.skate .bottom {
+    width: 80%;
+}
+.artwork.skate::before {
+    left: 28px;
+}
+.artwork.skate::after {
+    right: 38px;
+}
+
+.artwork.long {
+    max-width: 322px;
+    min-height: 100px;
+}
+
+.artwork.supertall {
+    max-width: 68px;
+    min-height: 450px;
+}
+.artwork img,
+.artwork video {
+    max-width: 100%;
+}

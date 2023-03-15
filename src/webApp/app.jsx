@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './app.less';
 import Header from './Header';
+import './app.less';
 
 function App({ children }) {
   const location = useLocation();
@@ -15,7 +15,7 @@ function App({ children }) {
   }, [location]);
 
   return (
-    <div className={"pageContent " + location.pathname.replace('/','')}>
+    <div className="pageContent">
       <Header />
       {children}
     </div>

@@ -37,7 +37,7 @@ function Software() {
               <div className='text'>
                 <h3>{project.title}</h3>
                 <div dangerouslySetInnerHTML={{ __html: project.description }} />
-                <a href={project.webLink} target='_blank'>View The Item</a>
+                {/*<a href={project.webLink} target='_blank'>View The Item</a>*/}
               </div>
             </>}
           >

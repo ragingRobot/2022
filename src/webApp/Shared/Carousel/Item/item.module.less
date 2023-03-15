@@ -1,0 +1,274 @@
+.projectsContainer {
+    perspective: 1000px;
+    position: relative;
+    display: flex;
+    z-index: 10;
+    height: 260px;
+    transform: translateY(75px) rotate(0);
+}
+.carousel {
+    position: relative;
+}
+.carousel .loading {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    z-index: 10;
+}
+.carousel .loading + .projectsContainer .top,
+.carousel .loading + .projectsContainer .back {
+    color: #000;
+    backface-visibility: visible;
+    height: 70px;
+    top: -25px;
+}
+
+.projectsContainer.projectsLoading svg,
+.projectsContainer.projectsLoading::before,
+.projectsContainer.projectsLoading::after,
+.projectsContainer.projectsLoading button  {
+    display: none;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-359deg);
+    }
+  }
+
+.projectsContainer::before {
+    content: "";
+    height: 200%;
+    width: 200px;
+    top: -50%;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    z-index: 1;
+    position: absolute;
+    left: -100px;
+    pointer-events: none;
+}
+
+.projectsContainer::after {
+    content: "";
+    height: 200%;
+    width: 200px;
+    top: -50%;
+    background: linear-gradient(to left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    z-index: 1;
+    position: absolute;
+    right: -100px;
+    pointer-events: none;
+}
+
+.projectsContainer:has( .flipped) button {
+    opacity: 0;
+}
+
+.projectsContainer button {
+    z-index: 11;
+    position: absolute;
+    background: transparent;
+    border: none;
+    border: none;
+    font-size: 5rem;
+    align-self: center;
+    transition: all 1s;
+    transform: translateZ(0px);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.projectsContainer button svg {
+    stroke-width: 1rem;
+    stroke: #fff;
+ }
+
+.projectsContainer button:hover,
+.projectsContainer button:focus {
+    transition: transform .2s;
+    transform: scale(1.2);
+    outline: none;
+}
+
+.projectsContainer button:hover svg,
+.projectsContainer button:focus svg {
+    stroke: #000;
+    fill: #fff;
+ }
+
+ .projectsContainer button:active svg {
+    stroke: var(--accent);
+    fill: var(--accent);
+ }
+.projectsContainer button.prev {
+    left: 0;
+}
+
+.projectsContainer button.next {
+    right: 0;
+}
+
+.projects {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform-style: preserve-3d;
+    transition: all 1s;
+    display: flex;
+    align-items: center;
+    transform: translateZ(-10000px) translateY(100px) rotateX(-90deg) rotateZ(0deg);
+}
+
+.projectsContainer.projectsLoading {
+    animation: rotation infinite 4s linear;
+}
+.project {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    max-width: 418px;
+    min-height: 250px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    font-size: .8rem;
+    border: 3px solid black;
+    border-radius: 12px;
+    transform-style: preserve-3d;
+    transition: all .5s;
+    cursor: pointer;
+
+
+    .flipped {
+        transform: rotateY(180deg);
+    }
+    
+    .top {
+        background-color: #000;
+        border-radius: 10px 0 0 10px;
+        content: "";
+        height: 20px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translateY(-10px) translateZ(0px) translateX(0) rotateX(90deg);
+        width: 100%;
+        z-index: -1;
+        right: 0;
+        margin: auto;
+    }
+    
+    .bottom {
+        background-color: #000;
+        border-radius: 10px 0 0 10px;
+        content: "";
+        height: 20px;
+        left: 0;
+        position: absolute;
+        bottom: -12px;
+        transform: translateY(0px) translateZ(-2px) translate(0) rotateX(-90deg);
+        width: 100%;
+        z-index: -1;
+        right: 0;
+        margin: auto;
+    }
+
+
+.front{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 10px;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+    filter: grayscale(100);
+}
+
+.back{
+    background-color: #fff;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg) translateZ(26px);
+    outline: 3px solid black;
+    filter: contrast(33%) blur(2px) grayscale(100);
+    overflow: hidden;
+    box-shadow: 0;
+}
+
+&.selected .back {
+    transform: rotateY(180deg) rotateZ(180deg) translateZ(26px);
+    filter: contrast(100%) blur(0) grayscale(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+&.selected.flipped .back {
+    transition: box-shadow .5s linear;
+    box-shadow: 0 0 140px 90px #fff;
+}
+
+&.selected .front{
+    filter: grayscale(0);
+}
+
+.back img,
+.back video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+&.selected  h3{
+    color: var(--accent);
+}
+
+
+}
+
+.project:hover {
+    box-shadow: 0px 0px 20px 10px var(--accent);
+}
+
+
+
+.project:before {
+    background-color: #000;
+    border-radius: 10px 0 0 10px;
+    content: "";
+    height: 102%;
+    left: -4px;
+    position: absolute;
+    top: -2px;
+    transform: rotateY(-90deg) translateX(-11px);
+    backface-visibility: hidden;
+    width: 21px;
+    z-index: -1;
+}
+
+.project:after {
+    background-color: #000;
+    border-radius: 0 10px 10px 0;
+    content: "";
+    right: 9px;
+    position: absolute;
+    top: -3px;
+    transform: rotateY(90deg) translateX(26px);
+    transform-origin: 100% 50%;
+    backface-visibility: hidden;
+    width: 26px;
+    height: 102%;
+    z-index: -10;
+}
