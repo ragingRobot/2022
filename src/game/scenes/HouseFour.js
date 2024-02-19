@@ -29,6 +29,7 @@ export default class extends AbstractGame {
         this.objects.push(new FancyCouch(this, 1050, 960));
         this.objects.push(new FancyChair(this, 1650, 690));
         this.objects.push(new BookShelf(this, 2050, 460));
+        this.objects.push(new Chest(this,1700, 410));
     }
 
     addItems() {
@@ -39,9 +40,6 @@ export default class extends AbstractGame {
         this.player.alpha = 0;
         this.background.alpha = 0;
         this.house = new House(this, 1960, 420, 4, true);
-        const chest = new Chest(this,1700, 410);
-        chest.alpha = 0;
-        this.objects.push(chest);
 
         const event = new Event("animationComplete");
         window.dispatchEvent(event);

@@ -40,6 +40,13 @@ class Controller {
     } catch(err){
     }
   }
+  setGold(val = true){
+    this.hasGold = val;
+    try{
+    this.socket.emit('goldFound', val);
+    } catch(err){
+    }
+  }
   addSocketEvents(scene) {
     if (!("ontouchstart" in document.documentElement)) {
       //QR code controlls

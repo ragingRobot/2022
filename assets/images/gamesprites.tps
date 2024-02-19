@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>6</int>
         <key>texturePackerVersion</key>
-        <string>7.0.2</string>
+        <string>7.1.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -476,7 +476,7 @@
             <key type="filename">sprites/House4sprites-3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,1</point_f>
+                <point_f>0.462963,0.546875</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -491,7 +491,7 @@
             <key type="filename">sprites/House4sprites-4.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,1</point_f>
+                <point_f>0.504505,0.632184</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -521,7 +521,7 @@
             <key type="filename">sprites/House4sprites-6.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.47619,0.931034</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>

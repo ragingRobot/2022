@@ -32,6 +32,7 @@ export default class extends AbstractGame {
         this.objects.push(new Toilet(this, 1650, 865));
         this.objects.push(new Washer(this, 1910, 870));
         this.objects.push(new Computer(this, 1050,1010));
+        this.objects.push(new Door(this, 2050, 868));
     }
 
     addItems() {

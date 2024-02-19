@@ -6,7 +6,7 @@ import House from '../sprites/House';
 import AbstractGame from './AbstractGame';
 import House1Background from '../sprites/House1Background';
 import FirePlace from '../sprites/FirePlace';
-
+import Door from '../sprites/Door';
 
 export default class extends AbstractGame {
     constructor() {
@@ -17,6 +17,7 @@ export default class extends AbstractGame {
     addBackground() {
         this.background = new House1Background(this, 1532, 775);
         this.objects.push(new FirePlace(this, 1100, 845));
+        this.objects.push(new Door(this, 2050, 844));
     }
 
     addItems() {

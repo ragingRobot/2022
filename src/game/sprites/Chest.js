@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import Controller from "../Controller";
+import Gold from "./Gold";
 export default class Chest extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y) {
         var shapes = scene.cache.json.get('shapes');
@@ -10,6 +11,7 @@ export default class Chest extends Phaser.Physics.Matter.Sprite {
         this.isSensor = true;
         scene.add.existing(this);
         this.setStatic(true);
+        this.setSensor(true);
         this.isOn = false;
         scene.anims.create({
             key: 'chestOpen',
@@ -21,8 +23,10 @@ export default class Chest extends Phaser.Physics.Matter.Sprite {
 
     PlayerAction = () => {
         if (!this.isOn && Controller.hasKey) {
-            this.isOn = false;
+            this.isOn = true;
             this.anims.play('chestOpen', this);
+            const gold = new Gold(this.scene, this.x, this.y - 15);
+            gold.setDepth(this.depth + 1);
             return true;
         }
         return true;
