@@ -32,6 +32,14 @@ class Controller {
       //I dont care just dont crash the page anymore
     }
   }
+
+  setPaintbrush(val = true){
+    this.hasPaintbrush = val;
+    try{
+    this.socket.emit('paintbrushFound', val);
+    } catch(err){
+    }
+  }
   addSocketEvents(scene) {
     if (!("ontouchstart" in document.documentElement)) {
       //QR code controlls
