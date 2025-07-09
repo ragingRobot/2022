@@ -11,8 +11,8 @@ async function sendEmailMessage({ subject, sender, content }) {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'jmilst20@gmail.com',
-            pass: '2hamberger2'
+            user: process.env.appLogin,
+            pass: process.env.appPass
         }
     });
 
@@ -20,7 +20,7 @@ async function sendEmailMessage({ subject, sender, content }) {
     let info = await transporter.sendMail({
         from: `👻 <${sender}>`, // sender address
         to: "jmilst20@gmail.com", // list of receivers
-        subject: subject, // Subject line
+        subject: `${sender} -- ${subject}` , // Subject line
         text: content, // plain text body
         html: content, // html body
     });
@@ -31,7 +31,9 @@ async function sendEmailMessage({ subject, sender, content }) {
     // Preview only available when sending through an Ethereal account
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-    return info;
+    return {
+        response: "success"
+    };
 }
 
 exports.sendEmailMessage = sendEmailMessage;

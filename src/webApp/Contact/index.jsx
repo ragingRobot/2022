@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
+
 import FallDown from '../Shared/FallDown';
 function Contact() {
   const [isLoading, setIsLoading] = useState(true);
+  const [sent, setSent] = useState(false);
   useEffect(() => {
 
     window.addEventListener(
@@ -27,7 +29,7 @@ function Contact() {
   }
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ email: '' }}
       validate={(values) => {
         const errors = {};
         if (!values.email) {
@@ -37,11 +39,18 @@ function Contact() {
         ) {
           errors.email = 'Invalid email address';
         }
+        if (!values.subject) {
+          errors.subject = 'Required';
+        }
+        if (!values.message) {
+          errors.message = 'Required';
+        }
+
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
         console.log(values);
-        fetch('/sendMessage', {
+        const options = {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -51,11 +60,15 @@ function Contact() {
             content: values.message,
             subject: values.subject
           }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            setSubmitting(false);
-          });
+        };
+        fetch('/sendMessage', options).then(() => {
+          console.log("Message sent successfully");
+          setSent(true);
+          setSubmitting(false);
+        }).catch(error => {
+          // Handle any errors
+          console.error('Error:', error);
+        });
 
       }}
     >
@@ -64,7 +77,12 @@ function Contact() {
           <div>
             <h2>Contact</h2>
             <p>Want to create something awesome together? I'm all ears! If you're interested in collaborating on a project or have an idea that you think I can help bring to life, I'd love to hear from you. Whether it's software or art, or a blend of the two, I'm always looking for new and exciting ways to create interactive experiences that leave a lasting impression. You can get in touch with me by filling out the contact form below or by sending me an email at jmilst20@gmail.com. Let's create something amazing together</p>
-            <FallDown isLoading={isLoading}>
+            {sent && <div>
+              <p>Message sent successfully.</p>
+              <p>Thanks dude!</p>
+            </div>
+            }
+            {!sent && <FallDown isLoading={isLoading}>
               <div>
                 <Field type="email" name="email" placeholder="Email Address" onBlur={onBlur} onFocus={onFocus} />
                 <ErrorMessage name="email" component="div" />
@@ -81,8 +99,7 @@ function Contact() {
                 Submit
               </button>
             </FallDown>
-
-
+            }
           </div>
         </Form>
       )}
